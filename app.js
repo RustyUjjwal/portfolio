@@ -610,5 +610,4 @@ void loop() {
 
   // Call the new function
   animatedCounter();
-
 });
