@@ -2,7 +2,7 @@
 
 [Live Demo](https://your-live-demo-url.com)  
 
-![Portfolio Screenshot](images/websitr_screenshot.png)
+![Portfolio Screenshot](images/website_screenshot.png)
 
 ## 📖 Introduction  
 The **Ujjwal Keshri – Dynamic Personal Portfolio** is a fully responsive, single-page website designed to showcase the work, skills, and services of **Ujjwal Keshri**, an Electrical Engineer. Built with a modern and interactive design philosophy, the portfolio includes **light and dark themes**, animated elements, and interactive features that create an engaging browsing experience. It is optimized for desktop, tablet, and mobile viewing.  
