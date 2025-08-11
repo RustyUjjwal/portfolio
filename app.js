@@ -1,6 +1,7 @@
 // app.js - Portfolio interactivity
 
 window.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('loading');
 
   /* ------------------------------
        Loader & Video Preloading
@@ -63,6 +64,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // Fade out the loader
     setTimeout(() => {
       loader.classList.add('hidden');
+      document.body.classList.remove('loading');
     }, 400); // A small delay after reaching 100%
   }
 

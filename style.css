@@ -600,8 +600,10 @@ section:last-of-type {
 
 .hero__buttons {
   display: flex;
-  gap: var(--space-24);         /* Adds space between the buttons */
-  margin-top: var(--space-32);  /* Adds space above the buttons */
+  gap: var(--space-24);
+  /* Adds space between the buttons */
+  margin-top: var(--space-32);
+  /* Adds space above the buttons */
 }
 
 #typewriter-text {
@@ -627,6 +629,7 @@ section:last-of-type {
   border: 1px solid var(--color-border);
   color: var(--color-text);
 }
+
 .hero .btn--outline:hover {
   background: var(--color-secondary);
   color: var(--color-primary-active);
@@ -1119,18 +1122,22 @@ body.light-mode .hero .photo-placeholder {
 /* Keep the accent color change on the text and icon */
 .contact__item:hover .contact__icon,
 .contact__item:hover .contact__value {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .contact__item:hover .contact__label {
-    color: var(--color-text);
+  color: var(--color-text);
 }
 
 /* Styling for Social Media Links with Icons and Text */
 .social-link {
   display: inline-flex;
+  flex-direction: column;
+  /* Stacks the icon and text */
   align-items: center;
-  gap: 8px;
+  /* Centers them horizontally */
+  gap: var(--space-6);
+  /* Adds a small space between icon and text */
   color: var(--color-text-secondary);
   text-decoration: none;
   font-size: 1rem;
@@ -1172,6 +1179,13 @@ body.light-mode .hero .photo-placeholder {
   margin-bottom: var(--space-32);
 }
 
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .footer h4 {
   margin-bottom: var(--space-16);
   color: var(--color-text);
@@ -1189,11 +1203,15 @@ body.light-mode .hero .photo-placeholder {
 
 .footer a {
   color: var(--color-text-secondary);
+  display: inline-block;
+  /* Add this line */
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .footer a:hover {
   color: var(--color-primary);
-  text-decoration: underline;
+  text-decoration: none;
+  transform: scale(1.08);
 }
 
 .footer__bottom {
@@ -1203,24 +1221,42 @@ body.light-mode .hero .photo-placeholder {
   color: var(--color-text-secondary);
 }
 
+.footer .social-link {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-6);
+  /* Increased gap for better spacing */
+  min-width: 100px;
+  /* CRITICAL: Gives each link its own space */
+  text-decoration: none;
+}
+
+.footer .social-link:hover {
+  transform: none;
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
   .hero__image {
-  order: -1;
-  margin-bottom: var(--space-24);
-  margin-top: 4rem; /* Add this line to move the image down */
-}
+    order: -1;
+    margin-bottom: var(--space-24);
+    margin-top: 4rem;
+    /* Add this line to move the image down */
+  }
 
   .hero__content {
-  grid-template-columns: 1fr; /* This switches to a single column */
-  text-align: center;
-}
+    grid-template-columns: 1fr;
+    /* This switches to a single column */
+    text-align: center;
+  }
 
   .hero__image {
-  order: -1; /* This moves the image to the top */
-  margin-bottom: var(--space-24);
-  margin-top: 4rem;
-}
+    order: -1;
+    /* This moves the image to the top */
+    margin-bottom: var(--space-24);
+    margin-top: 4rem;
+  }
 
   .hero__buttons {
     justify-content: center;
@@ -1241,6 +1277,10 @@ body.light-mode .hero .photo-placeholder {
   .footer__content {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .footer .social-links {
+    justify-content: center;
   }
 
   .footer__social,
@@ -1273,49 +1313,54 @@ body.light-mode .hero .photo-placeholder {
 
   /* In the "Header" or "Responsive Design" section of your CSS */
 
-.nav__toggle {
-  border: none;
-  background: transparent;
-  padding: 0;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-}
+  .nav__toggle {
+    border: none;
+    background: transparent;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
 
-/* General style for all three lines (spans) */
-.nav__toggle span {
-  display: block;
-  width: 20px;
-  height: 4px; /* Makes the lines thicker */
-  background-color: var(--color-text);
-  border-radius: var(--radius-full); /* Rounds the ends */
-}
+  /* General style for all three lines (spans) */
+  .nav__toggle span {
+    display: block;
+    width: 20px;
+    height: 4px;
+    /* Makes the lines thicker */
+    background-color: var(--color-text);
+    border-radius: var(--radius-full);
+    /* Rounds the ends */
+  }
 
-/* Make the middle line wider */
-.nav__toggle span:nth-child(2) {
-  width: 28px;
-}
+  /* Make the middle line wider */
+  .nav__toggle span:nth-child(2) {
+    width: 28px;
+  }
 
-/* Styles for the "X" state when the menu is active */
-.nav__toggle.active span:nth-child(1) {
-  width: 28px; /* Match the longer width for a proper 'X' */
-  transform: translateY(10px) rotate(45deg);
-}
+  /* Styles for the "X" state when the menu is active */
+  .nav__toggle.active span:nth-child(1) {
+    width: 28px;
+    /* Match the longer width for a proper 'X' */
+    transform: translateY(10px) rotate(45deg);
+  }
 
-.nav__toggle.active span:nth-child(2) {
-  opacity: 0;
-  width: 0; /* Shrink the middle line away */
-}
+  .nav__toggle.active span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+    /* Shrink the middle line away */
+  }
 
-.nav__toggle.active span:nth-child(3) {
-  width: 28px; /* Match the longer width for a proper 'X' */
-  transform: translateY(-10px) rotate(-45deg);
-}
+  .nav__toggle.active span:nth-child(3) {
+    width: 28px;
+    /* Match the longer width for a proper 'X' */
+    transform: translateY(-10px) rotate(-45deg);
+  }
 
   .skills__container,
   .projects__grid,
@@ -1432,98 +1477,121 @@ body.light-mode .hero .photo-placeholder {
   max-height: 60vh;
 }
 
+body.loading {
+  overflow: hidden;
+}
+
 /* ====================== */
 /* Loading Screen Styles  */
 /* ====================== */
 
 .loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--color-background); /* Uses theme background */
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    visibility: visible;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-background);
+  /* Uses theme background */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
 }
 
 .loader.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .loader__content {
-    width: 300px;
-    text-align: center;
-    color: var(--color-text); /* Uses theme text color */
+  width: 300px;
+  text-align: center;
+  color: var(--color-text);
+  /* Uses theme text color */
 }
 
 .loader__brand h1 {
-    font-family: 'Orbitron', sans-serif; /* Apply the new font */
-    font-size: 5rem; /* Increased from 3.5rem */
-    font-size: 3.5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--color-text);
+  font-family: 'Orbitron', sans-serif;
+  /* Apply the new font */
+  font-size: 5rem;
+  /* Increased from 3.5rem */
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-text);
 }
 
 .loader__brand p {
-    font-family: 'Orbitron', sans-serif; /* Apply the new font */
-    font-size: 1rem;
-    letter-spacing: 3px;
-    color: var(--color-text-secondary);
-    text-transform: uppercase;
+  font-family: 'Orbitron', sans-serif;
+  /* Apply the new font */
+  font-size: 1rem;
+  letter-spacing: 3px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
 }
 
 .loader__percentage {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
+  font-size: 1rem;
+  color: var(--color-text-secondary);
 }
 
 .loader__progress-bar {
-    width: 100%;
-    height: 8px;
-    background-color: var(--color-surface); /* Uses theme surface color */
-    border-radius: var(--radius-full);
-    margin: 0.5rem 0;
-    overflow: hidden;
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-surface);
+  /* Uses theme surface color */
+  border-radius: var(--radius-full);
+  margin: 0.5rem 0;
+  overflow: hidden;
 }
 
 .loader__progress {
-    width: 0%;
-    height: 100%;
-    background: var(--color-primary); /* Uses theme primary color */
+  width: 0%;
+  height: 100%;
+  background: var(--color-primary);
+  /* Uses theme primary color */
 }
 
 .loader__status {
-    font-size: 0.8rem;
-    color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
 }
 
 /* ======================================
 /* Alternative Custom Cursor (Robust)     */
 /* ====================================== */
 /* Apply the default custom cursor to the body and fallback to auto */
-html, body {
-    cursor: url('images/default-cursor.png') 0 0, auto;
+html,
+body {
+  cursor: url('images/default-cursor.png') 0 0, auto;
 }
 
 /* Apply the 'pointer' version to all interactive elements. */
 /* It's better to use a different image for the pointer or fallback to the browser's default. */
-a, button, .btn, .filter-btn, .skill, .theme-toggle, .source-code-btn, .modal-close-btn, .nav__toggle, .social-link, .project-card, .service-card {
-    cursor: url('images/default-cursor.png') 0 0, pointer;
+a,
+button,
+.btn,
+.filter-btn,
+.skill,
+.theme-toggle,
+.source-code-btn,
+.modal-close-btn,
+.nav__toggle,
+.social-link,
+.project-card,
+.service-card {
+  cursor: url('images/default-cursor.png') 0 0, pointer;
 }
 
 /* Restore the text cursor for form inputs. */
 input[type="text"],
 input[type="email"],
 textarea {
-    cursor: url('images/text-cursor.png') 0 0, text;
+  cursor: url('images/text-cursor.png') 0 0, text;
 }
 
 /* ====================================== */
@@ -1548,14 +1616,17 @@ textarea {
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--color-blue-500) 0%, var(--color-blue-400) 100%);
   border-radius: var(--radius-full);
-  border: 3px solid var(--color-surface); /* Creates a padding effect */
+  border: 3px solid var(--color-surface);
+  /* Creates a padding effect */
 }
 
 /* The handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, var(--color-blue-400) 0%, var(--color-blue-500) 100%);
-  background-clip: content-box; /* Ensures the background stays inside the border */
-  border: 2px solid transparent; /* Creates transparent spacing */
+  background-clip: content-box;
+  /* Ensures the background stays inside the border */
+  border: 2px solid transparent;
+  /* Creates transparent spacing */
   /* border-radius was removed for square edges */
 }
 
@@ -1563,4 +1634,3 @@ textarea {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
-
