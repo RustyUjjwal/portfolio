@@ -1174,14 +1174,17 @@ body.light-mode .hero .photo-placeholder {
 
 .footer__content {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: var(--space-32);
+  /* This layout creates a centered middle column (auto) with flexible space on either side (1fr) */
+  grid-template-columns: 1fr auto 1fr;
+  align-items: flex-start;
   margin-bottom: var(--space-32);
 }
+
 
 .footer__links {
   display: flex;
   flex-direction: column;
+  /* This centers the "Quick Links" heading and the list below it */
   align-items: center;
   text-align: center;
 }
@@ -1221,14 +1224,25 @@ body.light-mode .hero .photo-placeholder {
   color: var(--color-text-secondary);
 }
 
+.footer__social {
+  /* This pushes the entire "Follow Me" block to the far-right edge of its column */
+  justify-self: end;
+  /* This keeps the text inside the block (Follow Me, LinkedIn, GitHub) left-aligned */
+  text-align: left;
+}
+
+.footer .social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-12);
+}
+
 .footer .social-link {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--space-6);
-  /* Increased gap for better spacing */
-  min-width: 100px;
-  /* CRITICAL: Gives each link its own space */
+  display: inline-flex; /* Establishes the alignment container */
+  flex-direction: row; /* Places the icon and text side-by-side */
+  align-items: center; /* Vertically centers the icon and text with each other */
+  gap: var(--space-8); /* Creates a small space between the icon and text */
   text-decoration: none;
 }
 
@@ -1275,18 +1289,29 @@ body.light-mode .hero .photo-placeholder {
   }
 
   .footer__content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+  /* Stack everything into one column */
+  grid-template-columns: 1fr;
+  gap: var(--space-32);
+  /* Center-align the text for all sections */
+  text-align: center;
+}
 
-  .footer .social-links {
-    justify-content: center;
-  }
+.footer__links,
+.footer__social {
+  /* 2. Center the blocks themselves in the layout */
+  justify-self: center;
+  /* 3. This is the key fix: It forces the text inside ("Follow Me") to be centered */
+  text-align: center;
+}
 
-  .footer__social,
-  .footer__links ul {
-    justify-content: center;
-  }
+.footer .social-links {
+  /* 4. Center the social icons within their container */
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-24);
+}
+
 }
 
 @media (max-width: 768px) {
