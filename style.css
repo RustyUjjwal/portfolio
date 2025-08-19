@@ -46,7 +46,7 @@
     Monaco, Consolas, monospace;
   --font-size-xs: 11px;
   --font-size-sm: 12px;
-  --font-size-base: 14px;
+  --font-size-base: 15px;
   --font-size-md: 14px;
   --font-size-lg: 16px;
   --font-size-xl: 18px;
@@ -406,6 +406,8 @@ textarea.form-control {
   color: var(--color-text);
   margin: 0;
   font-weight: var(--font-weight-bold);
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
 }
 
 .nav__menu {
@@ -414,6 +416,8 @@ textarea.form-control {
   margin: 0;
   padding: 0;
   gap: var(--space-32);
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
 }
 
 .nav__link {
@@ -513,7 +517,7 @@ section:last-of-type {
   text-align: center;
   margin-bottom: var(--space-32);
   font-size: var(--font-size-3xl);
-  color: var(--color-text);
+  color: var(--color-text); 
 }
 
 .section__title::after {
@@ -636,8 +640,8 @@ section:last-of-type {
 }
 
 .hero__photo {
-  width: 250px;
-  height: 250px;
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
   padding: var(--space-8);
   background-color: rgba(var(--color-blue-400-rgb), 0.5);
@@ -654,7 +658,6 @@ section:last-of-type {
   justify-content: center;
   font-size: 4rem;
 }
-
 
 /* 2. Light Mode Overrides */
 body.light-mode .hero__video--dark {
@@ -736,52 +739,51 @@ body.light-mode .hero .photo-placeholder {
 
 .about__image {
   display: flex;
+  flex-direction: column;
+  /* Stacks the photo and buttons vertically */
+  align-items: center;
+  /* Centers them horizontally */
   justify-content: center;
-  margin-bottom: var(--space-24);
+  position: relative;
 }
 
 .about__content {
-  text-align: center;
   max-width: 768px;
+  width: 100%;
+  position: relative;
+  /* This is the new animation container */
+  overflow: hidden;
+  /* Hides the content that slides out */
 }
-
-/* In the "About Section" of your CSS */
 
 /* The main container with the blue frame */
 .about__photo {
-  width: 200px;
-  height: 200px;
-  border-radius: var(--radius-lg);
-  /* Rounded corners for the frame */
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
   background-color: var(--color-primary);
-  /* The color of the frame */
   padding: var(--space-4);
-  /* Space between the frame and the inner box */
 }
 
 /* The inner dark box that holds the emoji */
 .about__photo .photo-placeholder {
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-base);
-  /* Slightly smaller rounding for the inner box */
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--color-surface);
-  /* Dark background for the inner box */
 }
 
 /* The emoji itself */
 .about__photo .photo-placeholder span {
-  font-size: 2.5rem;
-  /* Controls the size of the emoji */
-  line-height: 1;
-  /* Resetting styles from previous versions */
-  width: auto;
-  height: auto;
-  background-color: transparent;
-  border-radius: 0;
+  border-radius: 50%;
+}
+
+.about__details-default {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  text-align: center;
 }
 
 .about__text {
@@ -818,6 +820,255 @@ body.light-mode .hero .photo-placeholder {
   font-weight: var(--font-weight-medium);
 }
 
+/* Tab Buttons positioned under the image */
+
+.timline-buttons {
+  display:inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--color-surface);
+  padding: 4px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  margin-top: var(--space-12);
+  margin-bottom: var(--space-32);
+}
+
+.tab-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  background: var(--color-surface);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  z-index: 10;
+  margin-top: var(--space-24);
+}
+
+.tab-btn {
+  padding: var(--space-8) var(--space-16);
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  transition: all 0.25s ease-in-out;
+}
+
+.tab-btn:hover {
+  color: var(--color-primary-active);
+}
+
+.tab-btn.active {
+  background-color: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  border-radius: var(--radius-base);
+}
+
+.tab-btn__icon {
+  font-size: 1.1rem;
+}
+
+.tab-btn__text {
+  font-size: 0.9rem;
+  position: relative;
+  top: 2px;
+}
+
+/* Tab Content as a slide-in panel */
+.tab-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-background);
+  z-index: 20;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  overflow-y: auto;
+  padding: var(--space-32);
+}
+
+/* --- Animation Logic --- */
+.about__container.timeline-active .about__details-default {
+  transform: translateX(-100%);
+  /* Slide default content out */
+  opacity: 0;
+}
+
+.about__container.timeline-active .tab-content {
+  transform: translateX(0);
+  /* Slide timeline in */
+  opacity: 1;
+}
+
+/* Close Button for the timeline panel */
+.timeline-close-btn {
+  position: absolute;
+  top: var(--space-16);
+  right: var(--space-16);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 25;
+}
+
+.timeline-section {
+  display: none;
+  /* Hide content by default */
+  animation: contentFadeIn 0.4s ease;
+}
+
+.timeline-section.active {
+  display: block;
+  /* Show active content */
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Timeline Item Styles */
+.timeline__item {
+  position: relative;
+  padding-left: var(--space-32);
+  margin-bottom: var(--space-24);
+  text-align: left;
+}
+
+.timeline__item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-surface);
+}
+
+.timeline__item::after {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 18px;
+  bottom: -32px;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+.timeline__item:last-child::after {
+  display: none;
+}
+
+.timeline__title {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+.timeline__subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+  font-style: italic;
+}
+
+.timeline__date {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-12);
+}
+
+.timeline__description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  padding-left: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.timeline__description li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+.timeline__description li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.timeline__description p {
+  margin-bottom: 4px;
+  color: var(--color-text-secondary);
+}
+
+.experience__timeline {
+  position: relative;
+  padding-left: var(--space-32);
+  margin-bottom: var(--space-24);
+  text-align: left;
+}
+
+.experience__timeline:last-child {
+  margin-bottom: 0;
+}
+
+.experience__timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-surface);
+}
+
+.experience__timeline::after {
+  content: '';
+  position: absolute;
+  background-color: var(--color-border);
+}
+
+.experience__timeline:last-child::after {
+  display: none;
+}
+
 /* Skills Section */
 .skills {
   background-color: var(--color-surface);
@@ -833,7 +1084,7 @@ body.light-mode .hero .photo-placeholder {
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-24);
   color: var(--color-text);
-  text-align: left;
+  text-align: center;
   border-bottom: 2px solid var(--color-border);
   padding-bottom: var(--space-8);
 }
@@ -1050,19 +1301,6 @@ body.light-mode .hero .photo-placeholder {
   line-height: 1.6;
 }
 
-/* Prevent 3D effect on mobile */
-@media (max-width: 768px) {
-
-  .project-card:hover,
-  .project-card:focus-visible,
-  .service-card:hover,
-  .service-card:focus-visible {
-    transform: none;
-    box-shadow: none;
-    z-index: 1;
-  }
-}
-
 /* Contact Section */
 .contact__container {
   display: grid;
@@ -1127,6 +1365,12 @@ body.light-mode .hero .photo-placeholder {
 
 .contact__item:hover .contact__label {
   color: var(--color-text);
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  outline: 0;
+  box-shadow: 0 0 0 4px rgba(var(--color-blue-500-rgb), 0.2); /* Adjust color and spread as needed */
 }
 
 /* Styling for Social Media Links with Icons and Text */
@@ -1239,10 +1483,14 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .footer .social-link {
-  display: inline-flex; /* Establishes the alignment container */
-  flex-direction: row; /* Places the icon and text side-by-side */
-  align-items: center; /* Vertically centers the icon and text with each other */
-  gap: var(--space-8); /* Creates a small space between the icon and text */
+  display: inline-flex;
+  /* Establishes the alignment container */
+  flex-direction: row;
+  /* Places the icon and text side-by-side */
+  align-items: center;
+  /* Vertically centers the icon and text with each other */
+  gap: var(--space-8);
+  /* Creates a small space between the icon and text */
   text-decoration: none;
 }
 
@@ -1262,6 +1510,14 @@ body.light-mode .hero .photo-placeholder {
   .hero__content {
     grid-template-columns: 1fr;
     /* This switches to a single column */
+    text-align: center;
+  }
+
+  .about__content {
+    text-align: center;
+  }
+
+  .about__text-wrapper {
     text-align: center;
   }
 
@@ -1289,32 +1545,42 @@ body.light-mode .hero .photo-placeholder {
   }
 
   .footer__content {
-  /* Stack everything into one column */
-  grid-template-columns: 1fr;
-  gap: var(--space-32);
-  /* Center-align the text for all sections */
-  text-align: center;
-}
+    /* Stack everything into one column */
+    grid-template-columns: 1fr;
+    gap: var(--space-32);
+    /* Center-align the text for all sections */
+    text-align: center;
+  }
 
-.footer__links,
-.footer__social {
-  /* 2. Center the blocks themselves in the layout */
-  justify-self: center;
-  /* 3. This is the key fix: It forces the text inside ("Follow Me") to be centered */
-  text-align: center;
-}
+  .footer__links,
+  .footer__social {
+    /* 2. Center the blocks themselves in the layout */
+    justify-self: center;
+    /* 3. This is the key fix: It forces the text inside ("Follow Me") to be centered */
+    text-align: center;
+  }
 
-.footer .social-links {
-  /* 4. Center the social icons within their container */
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--space-24);
-}
+  .footer .social-links {
+    /* 4. Center the social icons within their container */
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-24);
+  }
 
 }
 
 @media (max-width: 768px) {
+  /* Prevent 3D effect on mobile */
+  .project-card:hover,
+  .project-card:focus-visible,
+  .service-card:hover,
+  .service-card:focus-visible {
+    transform: none;
+    box-shadow: none;
+    z-index: 1;
+  }
+
   .nav__menu {
     position: fixed;
     top: 65px;
@@ -1334,6 +1600,16 @@ body.light-mode .hero .photo-placeholder {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
+  }
+
+  .hero__photo {
+    width: 280px; /* Reduced from 400px for mobile */
+    height: 280px;
+  }
+
+  .about__photo {
+    width: 240px; /* Reduced from 300px for mobile */
+    height: 240px;
   }
 
   /* In the "Header" or "Responsive Design" section of your CSS */
@@ -1391,6 +1667,23 @@ body.light-mode .hero .photo-placeholder {
   .projects__grid,
   .services__grid {
     grid-template-columns: 1fr;
+  }
+
+  .tab-btn {
+    padding: var(--space-12);
+  }
+
+  .timeline-close-btn {
+    top: var(--space-8);
+    /* Moves the button up, closer to the top edge */
+    right: var(--space-8);
+    /* Moves the button to the right, closer to the edge */
+    width: 24px;
+    /* Decreases the button's width */
+    height: 24px;
+    /* Decreases the button's height */
+    font-size: 1.2rem;
+    /* Decreases the size of the 'x' icon */
   }
 }
 
@@ -1536,14 +1829,11 @@ body.loading {
   width: 300px;
   text-align: center;
   color: var(--color-text);
-  /* Uses theme text color */
 }
 
 .loader__brand h1 {
   font-family: 'Orbitron', sans-serif;
-  /* Apply the new font */
   font-size: 5rem;
-  /* Increased from 3.5rem */
   font-size: 3.5rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -1589,17 +1879,13 @@ body.loading {
 /* ======================================
 /* Alternative Custom Cursor (Robust)     */
 /* ====================================== */
-/* Apply the default custom cursor to the body and fallback to auto */
-html,
-body {
-  cursor: url('images/default-cursor.png') 0 0, auto;
-}
 
-/* Apply the 'pointer' version to all interactive elements. */
-/* It's better to use a different image for the pointer or fallback to the browser's default. */
+html,
+body,
 a,
 button,
 .btn,
+.tab-btn,
 .filter-btn,
 .skill,
 .theme-toggle,
@@ -1608,8 +1894,10 @@ button,
 .nav__toggle,
 .social-link,
 .project-card,
+.contact__container,
+.footer,
 .service-card {
-  cursor: url('images/default-cursor.png') 0 0, pointer;
+  cursor: url('images/default-cursor.png') 0 0, auto;
 }
 
 /* Restore the text cursor for form inputs. */
@@ -1658,4 +1946,21 @@ textarea {
 /* The corner where vertical and horizontal scrollbars meet */
 ::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+/* ADDED STYLES FOR IMAGES */
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero__photo .photo-placeholder,
+.about__photo .photo-placeholder {
+  background: transparent;
+}
+.hero__photo .photo-placeholder img {
+  border-radius: 50%;
+}
+.about__photo .photo-placeholder img {
+  border-radius: 50%; /* FIXED THIS LINE */
 }

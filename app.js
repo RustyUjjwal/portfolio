@@ -1,6 +1,10 @@
 // app.js - Portfolio interactivity
+window.onbeforeunload = function () {
+  window.scrollTo(-1, -1);
+};
 
 window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
   document.body.classList.add('loading');
 
   /* ------------------------------
@@ -280,7 +284,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const json = JSON.stringify(object);
 
         // --- Define Endpoints ---
-        const googleScriptURL = 'https://script.google.com/macros/s/AKfycby7dRAMt3MpYbBEVDSS7TQsnWfBPXP_RThYGnKlIPy4ts_VutaERx5qZAEUNvcNIbGN/exec';
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbw5iMeqci8YZSSZwUs8GtoQpJtgoHLHfyQkEKMZjX_PyPIfvjYZHKbO3eI9ARYCCcE/exec';
         const web3FormsURL = 'https://api.web3forms.com/submit';
 
         // --- Create promises for both fetch requests ---
@@ -383,6 +387,60 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   typewriterEffect(); // Initialize on load
+
+  /* ------------------------------
+     Experience/Education Tabs
+  ------------------------------ */
+const aboutContainer = document.querySelector('.about__container');
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.timeline-section');
+const timelineCloseBtn = document.querySelector('.timeline-close-btn');
+const myselfButton = document.querySelector('.tab-btn[data-tab="myself"]');
+
+// Function to reset the view to the default "About Me" text
+const showDefaultView = () => {
+    // Hide the timeline panel
+    aboutContainer.classList.remove('timeline-active');
+    // De-highlight all buttons
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    // Highlight only the "Myself" button
+    if (myselfButton) {
+        myselfButton.classList.add('active');
+    }
+};
+
+// Set the "Myself" button as active on initial page load
+showDefaultView();
+
+// Handle clicks on all tab buttons
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const tab = button.dataset.tab;
+
+        // If "Education" or "Experience" is clicked, show the timeline
+        if (tab === 'education' || tab === 'experience') {
+            // Show the main slide-in panel
+            aboutContainer.classList.add('timeline-active');
+
+            // Update active button state
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Update which content is active inside the panel
+            tabContents.forEach(content => {
+                content.classList.toggle('active', content.id === `${tab}-content`);
+            });
+        } else {
+            // If "Myself" is clicked, reset to the default view
+            showDefaultView();
+        }
+    });
+});
+
+// Link the close button to the reset function
+if (timelineCloseBtn) {
+    timelineCloseBtn.addEventListener('click', showDefaultView);
+}
 
   /* ------------------------------
      Code Snippet Modal
@@ -573,41 +631,53 @@ void loop() {
   });
 
   /* ------------------------------
-     Animated Counter on Scroll
-  ------------------------------ */
-  function animatedCounter() {
-    const counters = document.querySelectorAll('.highlight__number');
-    if (counters.length === 0) return;
+   Animated Counter on Scroll
+------------------------------ */
+function animatedCounter() {
+  const counters = document.querySelectorAll('.highlight__number');
+  if (!counters.length) return;
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counter = entry.target;
-          const target = +counter.getAttribute('data-target');
-          const duration = 2000; // Animation duration in milliseconds
-          const stepTime = Math.abs(Math.floor(duration / target));
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      // Check if the element is visible
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = +counter.getAttribute('data-target');
+        const duration = 1500; // Animation speed in milliseconds
 
-          let current = 0;
-          const timer = setInterval(() => {
-            current += 1;
-            counter.textContent = current + '+';
-            if (current >= target) {
-              // Ensure it ends on the exact target number
-              counter.textContent = target + '+';
-              clearInterval(timer);
-            }
-          }, stepTime);
+        let current = 0;
+        counter.textContent = '0+';
+        // Calculate how much to increment on each step for a smooth animation
+        const increment = target / (duration / 16); 
 
-          observer.unobserve(counter); // Stop observing after animation starts
-        }
-      });
-    }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            // Update the number and continue the animation
+            counter.textContent = Math.ceil(current) + '+';
+            requestAnimationFrame(updateCounter);
+          } else {
+            // Set the final number once the animation is complete
+            counter.textContent = target + '+';
+          }
+        };
 
-    counters.forEach(counter => {
-      observer.observe(counter);
+        // Start the animation
+        requestAnimationFrame(updateCounter);
+        // Stop observing this element so the animation only runs once per page view
+        observer.unobserve(counter);
+
+      }
     });
-  }
+  }, { threshold: 0.2 }); // Triggers when 20% of the element is visible
 
-  // Call the new function
-  animatedCounter();
+  // Tell the observer to watch each of the counters
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
+}
+
+// Run the function to set everything up
+animatedCounter();
+  
 });

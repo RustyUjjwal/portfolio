@@ -123,7 +123,7 @@
                 <div class="hero__image">
                     <div class="hero__photo">
                         <div class="photo-placeholder">
-                            <span>⚡️</span>
+                            <img src="images/about-me.jpg" alt="Ujjwal Keshri">
                         </div>
                     </div>
                 </div>
@@ -138,36 +138,110 @@
                 <div class="about__image">
                     <div class="about__photo">
                         <div class="photo-placeholder">
-                            <span>👨‍🔬</span>
+                            <img src="images/about-me.jpg" alt="About Ujjwal Keshri">
                         </div>
                     </div>
+                    <div class="tab-buttons">
+                        <button class="tab-btn" data-tab="myself">
+                            <span class="tab-btn__icon">👷</span>
+                            <span class="tab-btn__text">Myself</span>
+                        </button>
+                        <button class="tab-btn" data-tab="education">
+                            <span class="tab-btn__icon">🎓</span>
+                            <span class="tab-btn__text">Education</span>
+                        </button>
+                        <button class="tab-btn" data-tab="experience">
+                            <span class="tab-btn__icon">💼</span>
+                            <span class="tab-btn__text">Experience</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="about__content">
-                    <p class="about__text">
-                        Hello! I'm an Electrical Engineering student passionate about turning complex theories into
-                        tangible solutions. My focus is at the intersection of power electronics, control systems, and
-                        web development, where I enjoy the thrill of bringing ideas to life—from powering on a newly
-                        designed circuit to deploying functional code.
-                    </p>
-                    <p class="about__text">
-                        This portfolio showcases projects born from a cycle of rigorous analysis and hands-on
-                        prototyping. As I approach graduation, I'm eager to apply my skills to new challenges. Please
-                        explore my work, and feel free to get in touch!
-                    </p>
 
-                    <div class="about__highlights">
-                        <div class="highlight">
-                            <span class="highlight__number" data-target="4">0+</span>
-                            <span class="highlight__text">Projects Completed</span>
+                <div class="about__content">
+                    <div class="about__details-default">
+                        <div class="about__text-wrapper">
+                            <p class="about__text">
+                                Hello! I'm an Electrical Engineering student passionate about turning complex theories
+                                into
+                                tangible solutions. My focus is at the intersection of power electronics, control
+                                systems, and
+                                web development, where I enjoy the thrill of bringing ideas to life—from powering on a
+                                newly
+                                designed circuit to deploying functional code.
+                            </p>
+                            <p class="about__text">
+                                This portfolio showcases projects born from a cycle of rigorous analysis and hands-on
+                                prototyping. As I approach graduation, I'm eager to apply my skills to new challenges.
+                                Please
+                                explore my work, and feel free to get in touch!
+                            </p>
                         </div>
-                        <div class="highlight">
-                            <span class="highlight__number" data-target="1">0+</span>
-                            <span class="highlight__text">Months Experience</span>
+                        <div class="about__highlights">
+                            <div class="highlight">
+                                <span class="highlight__number" data-target="4">0+</span>
+                                <span class="highlight__text">Projects Completed</span>
+                            </div>
+                            <div class="highlight">
+                                <span class="highlight__number" data-target="1">0+</span>
+                                <span class="highlight__text">Months Experience</span>
+                            </div>
+                            <div class="highlight">
+                                <span class="highlight__number" data-target="2">0+</span>
+                                <span class="highlight__text">Prototypes Built</span>
+                            </div>
                         </div>
-                        <div class="highlight">
-                            <span class="highlight__number" data-target="2">0+</span>
-                            <span class="highlight__text">Prototypes Built</span>
+                    </div>
+
+                    <div class="tab-content">
+                        <button type="button" class="timeline-close-btn" aria-label="Close timeline">&times;</button>
+                        <div class="timeline-section" id="education-content" data-tab="education">
+                            <div class="timeline__item">
+                                <h4 class="timeline__title">B.Tech in Electrical Engineering</h4>
+                                <p class="timeline__subtitle">Odisha University of Technology and Research | Ghatikia,
+                                    Bhubaneshwar, Odisha</p>
+                                <p class="timeline__date">Sept 2023 - June 2027</p>
+                                <ul class="timeline__description">
+                                    <p>CGPA: 8.6/10 (Until 4th Semester)</p>
+                                </ul>
+                            </div>
+                            <div class="timeline__item">
+                                <h4 class="timeline__title">Senior Secondary (Class XII)</h4>
+                                <p class="timeline__subtitle">DAV Public School | CDA-6, Cuttack, Odisha</p>
+                                <p class="timeline__date">2022</p>
+                                <ul class="timeline__description">
+                                    <p>Stream: Science (PCMC)</p>
+                                    <p>Percentage: 92.6%</p>
+                                </ul>
+                            </div>
+                            <div class="timeline__item">
+                                <h4 class="timeline__title">Higher Secondary (Class X)</h4>
+                                <p class="timeline__subtitle">DAV Public School | CDA-6, Cuttack, Odisha</p>
+                                <p class="timeline__date">2020</p>
+                                <ul class="timeline__description">
+                                    <p>Percentage: 92.6%</p>
+                                </ul>
+                            </div>
                         </div>
+                        <div class="timeline-section" id="experience-content" data-tab="experience">
+                            <div class="experience__timeline">
+                                <h4 class="timeline__title">Electrical Engineering Intern (Industrial Trainee)</h4>
+                                <p class="timeline__subtitle">Indian Oil Corporation Limited | SERPL, Bhubaneswar Pump Station (Jatni)</p>
+                                <p class="timeline__date">June 2025 - July 2025</p>
+                                <ul class="timeline__description">
+                                    <li>Underwent training and prepared a project report on "Industrial Training" under the supervision of the Operations Manager.</li>
+                                    <li>Assisted in the maintenance and troubleshooting of electrical systems and equipment at the SERPL, Bhubaneswar Pump Station.</li>
+                                    <li>Gained practical experience with the operation and control of automated pumping systems within the pipelines division.</li>
+                                </ul>
+                                <div class="timline-buttons">
+                                    <a href="https://drive.google.com/file/d/1E3f11haBX99K1AKoM7MiTgT2Gk7Y_iyB/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                                    <button class="btn btn--secondary" data-tab="certificate">
+                                        <span class="tab-btn__icon">📜</span>
+                                        <span class="tab-btn__text">Certificate</span>
+                                    </button>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -208,15 +282,6 @@
                                 <div class="skill__progress"></div>
                             </div>
                         </div>
-                        <div class="skill" data-skill="ETAP" data-level="75">
-                            <div class="skill__info">
-                                <span class="skill__name">ETAP</span>
-                                <span class="skill__percentage">75%</span>
-                            </div>
-                            <div class="skill__bar">
-                                <div class="skill__progress"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -234,7 +299,7 @@
                         </div>
                         <div class="skill" data-skill="Microcontrollers (STM32, AVR)" data-level="90">
                             <div class="skill__info">
-                                <span class="skill__name">Microcontrollers (STM32, AVR)</span>
+                                <span class="skill__name">Microcontrollers (STM32, AVR, ESP)</span>
                                 <span class="skill__percentage">90%</span>
                             </div>
                             <div class="skill__bar">
@@ -311,16 +376,7 @@
                         </div>
                         <div class="skill" data-skill="Javascript" data-level="70">
                             <div class="skill__info">
-                                <span class="skill__name">Javascript</span>
-                                <span class="skill__percentage">70%</span>
-                            </div>
-                            <div class="skill__bar">
-                                <div class="skill__progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill" data-skill="React.js" data-level="70">
-                            <div class="skill__info">
-                                <span class="skill__name">React.js</span>
+                                <span class="skill__name">Javascript [React.js]</span>
                                 <span class="skill__percentage">70%</span>
                             </div>
                             <div class="skill__bar">
@@ -405,12 +461,12 @@
             <h2 class="section__title">Featured Projects</h2>
             <div class="projects__filters">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="power">Power Electronics</button>
-                <button class="filter-btn" data-filter="controls">Control Systems</button>
+                <!-- <button class="filter-btn" data-filter="power">Power Electronics</button> -->
+                <!-- <button class="filter-btn" data-filter="controls">Control Systems</button> -->
                 <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
             </div>
             <div class="projects__grid">
-                <div class="project-card" data-category="controls">
+                <div class="project-card" data-category="embedded">
                     <div class="project-card__image">
                         <div class="project-placeholder">☀️</div>
                     </div>
@@ -420,34 +476,13 @@
                             motors and LDRs to maximize energy capture by over 25% compared to a static panel.</p>
                         <div class="project-card__tags">
                             <span class="tag">Arduino</span>
-                            <span class="tag">Control Systems</span>
-                            <span class="tag">MATLAB</span>
-                            <span class="tag">C++</span>
+                            <span class="tag">IoT</span>
+                            <span class="tag">Embedded Systems</span>
                         </div>
                         <div class="project-card__buttons">
-                            <a href="#" class="btn btn--sm btn--secondary">View Details</a>
+                            <a href="https://github.com/RustyUjjwal/Automated-Solar-Tracking-System.git" target="_blank"
+                                rel="noopener noreferrer" class="btn btn--sm btn--secondary">View Details</a>
                             <button class="btn btn--sm btn--outline source-code-btn" data-project="solarTracker">Source
-                                Code</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="power">
-                    <div class="project-card__image">
-                        <div class="project-placeholder">🔌</div>
-                    </div>
-                    <div class="project-card__content">
-                        <h3 class="project-card__title">Grid-Tied DC/AC Inverter</h3>
-                        <p class="project-card__description">A 1kW single-phase H-Bridge inverter with sine-PWM control.
-                            The project involved PCB design, thermal management, and simulation in Simulink.</p>
-                        <div class="project-card__tags">
-                            <span class="tag">Power Electronics</span>
-                            <span class="tag">Altium</span>
-                            <span class="tag">Simulink</span>
-                        </div>
-                        <div class="project-card__buttons">
-                            <a href="#" class="btn btn--sm btn--secondary">View Details</a>
-                            <button class="btn btn--sm btn--outline source-code-btn" data-project="inverter">Source
                                 Code</button>
                         </div>
                     </div>
@@ -465,12 +500,34 @@
                         <div class="project-card__tags">
                             <span class="tag">Embedded Systems</span>
                             <span class="tag">STM32</span>
-                            <span class="tag">PCB Design</span>
+                            <span class="tag">Arduino</span>
                             <span class="tag">IoT</span>
                         </div>
                         <div class="project-card__buttons">
-                            <a href="#" class="btn btn--sm btn--secondary">View Details</a>
+                            <a href="https://github.com/RustyUjjwal/IoT-Weather-Monitoring-Station.git" target="_blank"
+                                rel="noopener noreferrer" class="btn btn--sm btn--secondary">View Details</a>
                             <button class="btn btn--sm btn--outline source-code-btn" data-project="iotWeather">Source
+                                Code</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="project-card" data-category="power">
+                    <div class="project-card__image">
+                        <div class="project-placeholder">🔌</div>
+                    </div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Grid-Tied DC/AC Inverter</h3>
+                        <p class="project-card__description">A 1kW single-phase H-Bridge inverter with sine-PWM control.
+                            The project involved PCB design, thermal management, and simulation in Simulink.</p>
+                        <div class="project-card__tags">
+                            <span class="tag">Power Electronics</span>
+                            <span class="tag">Altium</span>
+                            <span class="tag">Simulink</span>
+                        </div>
+                        <div class="project-card__buttons">
+                            <a href="#" class="btn btn--sm btn--secondary">View Details</a>
+                            <button class="btn btn--sm btn--outline source-code-btn" data-project="inverter">Source
                                 Code</button>
                         </div>
                     </div>
@@ -497,7 +554,8 @@
                                 Code</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
+
             </div>
         </div>
     </section>
@@ -643,7 +701,7 @@
                 </div>
             </div>
             <div class="footer__bottom">
-                <p>&copy; 2025 Ujjwal Keshri. All rights reserved.</p>
+                <p>&copy; <span id="copyright-year">2025</span> Ujjwal Keshri. All rights reserved.</p>
             </div>
         </div>
     </footer>
