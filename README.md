@@ -1,6 +1,6 @@
 # Ujjwal Keshri – Dynamic Personal Portfolio
 
-[Live Demo](https://your-live-demo-url.com)  
+[Live Demo](https://ujjwal-keshri.netlify.app)  
 
 ![Portfolio Screenshot](images/website_screenshot.png)
 
@@ -59,15 +59,4 @@ Follow these steps to run the project locally:
 1. **Clone the repository**  
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
-
-## 📂 File Structure
--portfolio/
--├── index.html              # Main HTML document containing the portfolio structure
--├── style.css               # Core styling, layout rules, and light/dark theme settings
--├── animation.css           # All CSS keyframes and transition effects
--├── app.js                  # JavaScript for interactivity, loader, theme toggle, modals, etc.
--├── prism.js                # Prism.js library for syntax highlighting
--├── prism.css               # Prism.js styles for code highlighting
--├── images/                 # All images, icons, and video assets
--└── README.md               # Project documentation (this file)
-
+---
