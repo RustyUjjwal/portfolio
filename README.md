@@ -1,4 +1,4 @@
-# Ujjwal Keshri – Dynamic Personal Portfolio
+# Dynamic Personal Portfolio
 
 ## [🪪 Live](https://ujjwal-keshri.netlify.app)  
 👆 Click on the above link to visit my portfolio
@@ -9,7 +9,7 @@
 ---
 
 ## 📖 Introduction  
-The **Ujjwal Keshri – Dynamic Personal Portfolio** is a fully responsive, single-page website designed to showcase the work, skills, and services of **Ujjwal Keshri**, an Electrical Engineer. Built with a modern and interactive design philosophy, the portfolio includes **light and dark themes**, animated elements, and interactive features that create an engaging browsing experience. It is optimized for desktop, tablet, and mobile viewing.  
+The **Dynamic Personal Portfolio** is a fully responsive, single-page website designed to showcase the work, skills, and services of **Ujjwal Keshri**, an Electrical Engineer. Built with a modern and interactive design philosophy, the portfolio includes **light and dark themes**, animated elements, and interactive features that create an engaging browsing experience. It is optimized for desktop, tablet, and mobile viewing.  
 
 ---
 
