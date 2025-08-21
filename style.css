@@ -517,7 +517,7 @@ section:last-of-type {
   text-align: center;
   margin-bottom: var(--space-32);
   font-size: var(--font-size-3xl);
-  color: var(--color-text); 
+  color: var(--color-text);
 }
 
 .section__title::after {
@@ -669,33 +669,24 @@ body.light-mode .hero__video--light {
 }
 
 body.light-mode .hero__overlay {
-  /* FROM: background-color: rgba(255, 255, 255, 0.1); */
-  /* TO: A subtle dark overlay for contrast */
   background-color: rgba(255, 255, 255, 0.486);
 }
 
-/* In the "Hero Section" of your CSS -> Light Mode Overrides */
-
 body.light-mode .hero__title {
   color: var(--color-blue-700);
-  /* Using a darker, more saturated blue */
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  /* Adds a shadow for depth */
 }
 
 body.light-mode .hero__subtitle,
 body.light-mode .hero__intro,
 body.light-mode .hero__tagline {
   color: var(--color-gray-900);
-  /* Near-black for maximum contrast */
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-  /* A softer shadow for readability */
 }
 
 body.light-mode #typewriter-text {
   color: var(--color-gray-900);
   border-right-color: var(--color-blue-700);
-  /* Match the new title color */
 }
 
 body.light-mode .hero .btn--secondary {
@@ -740,9 +731,7 @@ body.light-mode .hero .photo-placeholder {
 .about__image {
   display: flex;
   flex-direction: column;
-  /* Stacks the photo and buttons vertically */
   align-items: center;
-  /* Centers them horizontally */
   justify-content: center;
   position: relative;
 }
@@ -751,12 +740,9 @@ body.light-mode .hero .photo-placeholder {
   max-width: 768px;
   width: 100%;
   position: relative;
-  /* This is the new animation container */
   overflow: hidden;
-  /* Hides the content that slides out */
 }
 
-/* The main container with the blue frame */
 .about__photo {
   width: 300px;
   height: 300px;
@@ -765,7 +751,6 @@ body.light-mode .hero .photo-placeholder {
   padding: var(--space-4);
 }
 
-/* The inner dark box that holds the emoji */
 .about__photo .photo-placeholder {
   width: 100%;
   height: 100%;
@@ -776,7 +761,6 @@ body.light-mode .hero .photo-placeholder {
   background: var(--color-surface);
 }
 
-/* The emoji itself */
 .about__photo .photo-placeholder span {
   border-radius: 50%;
 }
@@ -820,10 +804,8 @@ body.light-mode .hero .photo-placeholder {
   font-weight: var(--font-weight-medium);
 }
 
-/* Tab Buttons positioned under the image */
-
 .timline-buttons {
-  display:inline-flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -844,8 +826,8 @@ body.light-mode .hero .photo-placeholder {
   padding: var(--space-8);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
-  z-index: 10;
   margin-top: var(--space-24);
+  
 }
 
 .tab-btn {
@@ -859,6 +841,7 @@ body.light-mode .hero .photo-placeholder {
   align-items: center;
   gap: var(--space-8);
   transition: all 0.25s ease-in-out;
+  
 }
 
 .tab-btn:hover {
@@ -878,7 +861,6 @@ body.light-mode .hero .photo-placeholder {
 .tab-btn__text {
   font-size: 0.9rem;
   position: relative;
-  top: 2px;
 }
 
 /* Tab Content as a slide-in panel */
@@ -897,20 +879,16 @@ body.light-mode .hero .photo-placeholder {
   padding: var(--space-32);
 }
 
-/* --- Animation Logic --- */
 .about__container.timeline-active .about__details-default {
   transform: translateX(-100%);
-  /* Slide default content out */
   opacity: 0;
 }
 
 .about__container.timeline-active .tab-content {
   transform: translateX(0);
-  /* Slide timeline in */
   opacity: 1;
 }
 
-/* Close Button for the timeline panel */
 .timeline-close-btn {
   position: absolute;
   top: var(--space-16);
@@ -931,13 +909,11 @@ body.light-mode .hero .photo-placeholder {
 
 .timeline-section {
   display: none;
-  /* Hide content by default */
   animation: contentFadeIn 0.4s ease;
 }
 
 .timeline-section.active {
   display: block;
-  /* Show active content */
 }
 
 @keyframes contentFadeIn {
@@ -952,7 +928,6 @@ body.light-mode .hero .photo-placeholder {
   }
 }
 
-/* Timeline Item Styles */
 .timeline__item {
   position: relative;
   padding-left: var(--space-32);
@@ -1095,7 +1070,6 @@ body.light-mode .hero .photo-placeholder {
   gap: var(--space-20);
 }
 
-/* Individual Skill Styling */
 .skill {
   padding: var(--space-16);
   background: var(--color-background);
@@ -1210,17 +1184,11 @@ body.light-mode .hero .photo-placeholder {
   justify-content: center;
 }
 
-/* In the "Projects Section" of your CSS */
-
 .project-placeholder {
   font-size: 3rem;
   opacity: 1;
-  /* Changed from 0.5 */
   color: var(--color-text-secondary);
 }
-
-/* Add this new rule for the hover effect */
-
 
 .project-card__content {
   padding: var(--space-24);
@@ -1357,7 +1325,6 @@ body.light-mode .hero .photo-placeholder {
   margin-top: var(--space-32);
 }
 
-/* Keep the accent color change on the text and icon */
 .contact__item:hover .contact__icon,
 .contact__item:hover .contact__value {
   color: var(--color-primary);
@@ -1370,18 +1337,14 @@ body.light-mode .hero .photo-placeholder {
 .form-control:focus {
   border-color: var(--color-primary);
   outline: 0;
-  box-shadow: 0 0 0 4px rgba(var(--color-blue-500-rgb), 0.2); /* Adjust color and spread as needed */
+  box-shadow: 0 0 0 4px rgba(var(--color-blue-500-rgb), 0.2);
 }
 
-/* Styling for Social Media Links with Icons and Text */
 .social-link {
   display: inline-flex;
   flex-direction: column;
-  /* Stacks the icon and text */
   align-items: center;
-  /* Centers them horizontally */
   gap: var(--space-6);
-  /* Adds a small space between icon and text */
   color: var(--color-text-secondary);
   text-decoration: none;
   font-size: 1rem;
@@ -1418,7 +1381,6 @@ body.light-mode .hero .photo-placeholder {
 
 .footer__content {
   display: grid;
-  /* This layout creates a centered middle column (auto) with flexible space on either side (1fr) */
   grid-template-columns: 1fr auto 1fr;
   align-items: flex-start;
   margin-bottom: var(--space-32);
@@ -1428,7 +1390,6 @@ body.light-mode .hero .photo-placeholder {
 .footer__links {
   display: flex;
   flex-direction: column;
-  /* This centers the "Quick Links" heading and the list below it */
   align-items: center;
   text-align: center;
 }
@@ -1451,7 +1412,6 @@ body.light-mode .hero .photo-placeholder {
 .footer a {
   color: var(--color-text-secondary);
   display: inline-block;
-  /* Add this line */
   transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
@@ -1469,9 +1429,7 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .footer__social {
-  /* This pushes the entire "Follow Me" block to the far-right edge of its column */
   justify-self: end;
-  /* This keeps the text inside the block (Follow Me, LinkedIn, GitHub) left-aligned */
   text-align: left;
 }
 
@@ -1484,13 +1442,9 @@ body.light-mode .hero .photo-placeholder {
 
 .footer .social-link {
   display: inline-flex;
-  /* Establishes the alignment container */
   flex-direction: row;
-  /* Places the icon and text side-by-side */
   align-items: center;
-  /* Vertically centers the icon and text with each other */
   gap: var(--space-8);
-  /* Creates a small space between the icon and text */
   text-decoration: none;
 }
 
@@ -1504,12 +1458,10 @@ body.light-mode .hero .photo-placeholder {
     order: -1;
     margin-bottom: var(--space-24);
     margin-top: 4rem;
-    /* Add this line to move the image down */
   }
 
   .hero__content {
     grid-template-columns: 1fr;
-    /* This switches to a single column */
     text-align: center;
   }
 
@@ -1519,13 +1471,6 @@ body.light-mode .hero .photo-placeholder {
 
   .about__text-wrapper {
     text-align: center;
-  }
-
-  .hero__image {
-    order: -1;
-    /* This moves the image to the top */
-    margin-bottom: var(--space-24);
-    margin-top: 4rem;
   }
 
   .hero__buttons {
@@ -1544,34 +1489,39 @@ body.light-mode .hero .photo-placeholder {
     grid-template-columns: 1fr;
   }
 
-  .footer__content {
-    /* Stack everything into one column */
-    grid-template-columns: 1fr;
-    gap: var(--space-32);
-    /* Center-align the text for all sections */
-    text-align: center;
-  }
-
-  .footer__links,
-  .footer__social {
-    /* 2. Center the blocks themselves in the layout */
-    justify-self: center;
-    /* 3. This is the key fix: It forces the text inside ("Follow Me") to be centered */
-    text-align: center;
-  }
-
-  .footer .social-links {
-    /* 4. Center the social icons within their container */
+  .tab-buttons {
+    padding: var(--space-6);
+    gap: var(--space-6);
     justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--space-24);
   }
 
+  .tab-btn {
+    padding: var(--space-2) var(--space-8);
+    font-size: var(--font-size-sm);
+  }
 }
 
+.footer__content {
+  grid-template-columns: 1fr;
+  gap: var(--space-32);
+  text-align: center;
+}
+
+.footer__links,
+.footer__social {
+  justify-self: center;
+  text-align: center;
+}
+
+.footer .social-links {
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-24);
+}
+
+
 @media (max-width: 768px) {
-  /* Prevent 3D effect on mobile */
   .project-card:hover,
   .project-card:focus-visible,
   .service-card:hover,
@@ -1603,16 +1553,14 @@ body.light-mode .hero .photo-placeholder {
   }
 
   .hero__photo {
-    width: 280px; /* Reduced from 400px for mobile */
+    width: 280px;
     height: 280px;
   }
 
   .about__photo {
-    width: 240px; /* Reduced from 300px for mobile */
+    width: 240px;
     height: 240px;
   }
-
-  /* In the "Header" or "Responsive Design" section of your CSS */
 
   .nav__toggle {
     border: none;
@@ -1628,38 +1576,30 @@ body.light-mode .hero .photo-placeholder {
     cursor: pointer;
   }
 
-  /* General style for all three lines (spans) */
   .nav__toggle span {
     display: block;
     width: 20px;
     height: 4px;
-    /* Makes the lines thicker */
     background-color: var(--color-text);
     border-radius: var(--radius-full);
-    /* Rounds the ends */
   }
 
-  /* Make the middle line wider */
   .nav__toggle span:nth-child(2) {
     width: 28px;
   }
 
-  /* Styles for the "X" state when the menu is active */
   .nav__toggle.active span:nth-child(1) {
     width: 28px;
-    /* Match the longer width for a proper 'X' */
     transform: translateY(10px) rotate(45deg);
   }
 
   .nav__toggle.active span:nth-child(2) {
     opacity: 0;
     width: 0;
-    /* Shrink the middle line away */
   }
 
   .nav__toggle.active span:nth-child(3) {
     width: 28px;
-    /* Match the longer width for a proper 'X' */
     transform: translateY(-10px) rotate(-45deg);
   }
 
@@ -1675,15 +1615,10 @@ body.light-mode .hero .photo-placeholder {
 
   .timeline-close-btn {
     top: var(--space-8);
-    /* Moves the button up, closer to the top edge */
     right: var(--space-8);
-    /* Moves the button to the right, closer to the edge */
     width: 24px;
-    /* Decreases the button's width */
     height: 24px;
-    /* Decreases the button's height */
     font-size: 1.2rem;
-    /* Decreases the size of the 'x' icon */
   }
 }
 
@@ -1726,7 +1661,6 @@ body.light-mode .hero .photo-placeholder {
   display: none;
 }
 
-/* Typewriter Effect Styles */
 #typewriter-text {
   border-right: 3px solid var(--color-primary);
   padding-right: 4px;
@@ -1766,6 +1700,8 @@ body.light-mode .hero .photo-placeholder {
   overflow-y: auto;
   position: relative;
   transform: scale(1);
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-overlay.hidden .modal-content {
@@ -1783,25 +1719,51 @@ body.light-mode .hero .photo-placeholder {
   cursor: pointer;
 }
 
-.modal-title {
-  margin-bottom: var(--space-24);
-  font-size: var(--font-size-2xl);
-  color: var(--color-text);
-}
-
 .modal-code-container pre[class*="language-"] {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-base);
   max-height: 60vh;
 }
 
+.modal-title-header {
+  margin-bottom: var(--space-16);}
+
+/* New styles for the tabbed modal */
+.code-lang-tabs {
+  display: flex; /* This is the key change to make the tabs horizontal */
+  align-items: center; /* Vertically aligns the tab text */
+  overflow-x: auto; /* Adds a horizontal scrollbar if tabs overflow */
+  flex-shrink: 0;
+  padding-bottom: 8px; /* Adds some space for the scrollbar */
+}
+
+.code-lang-tabs .tab-btn {
+  background: none;
+  border: none;
+  padding: var(--space-8) var(--space-12);
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid transparent;
+  flex-shrink: 0; /* Prevents individual tabs from shrinking */
+}
+
+.code-lang-tabs .tab-btn.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  background-color: transparent; /* Override default active style */
+}
+
+#modal-code-block-pre {
+  margin-top: var(--space-16);
+  flex-grow: 1; /* Allows the code block to take up remaining space */
+  max-height: 65vh; /* Adjust max height as needed */
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+}
+
+/* Loading Screen Styles */
 body.loading {
   overflow: hidden;
 }
-
-/* ====================== */
-/* Loading Screen Styles  */
-/* ====================== */
 
 .loader {
   position: fixed;
@@ -1810,7 +1772,6 @@ body.loading {
   width: 100vw;
   height: 100vh;
   background-color: var(--color-background);
-  /* Uses theme background */
   z-index: 9999;
   display: flex;
   justify-content: center;
@@ -1842,7 +1803,6 @@ body.loading {
 
 .loader__brand p {
   font-family: 'Orbitron', sans-serif;
-  /* Apply the new font */
   font-size: 1rem;
   letter-spacing: 3px;
   color: var(--color-text-secondary);
@@ -1858,7 +1818,6 @@ body.loading {
   width: 100%;
   height: 8px;
   background-color: var(--color-surface);
-  /* Uses theme surface color */
   border-radius: var(--radius-full);
   margin: 0.5rem 0;
   overflow: hidden;
@@ -1868,7 +1827,6 @@ body.loading {
   width: 0%;
   height: 100%;
   background: var(--color-primary);
-  /* Uses theme primary color */
 }
 
 .loader__status {
@@ -1876,10 +1834,7 @@ body.loading {
   color: var(--color-text-secondary);
 }
 
-/* ======================================
-/* Alternative Custom Cursor (Robust)     */
-/* ====================================== */
-
+/* Custom Cursor */
 html,
 body,
 a,
@@ -1900,67 +1855,49 @@ button,
   cursor: url('images/default-cursor.png') 0 0, auto;
 }
 
-/* Restore the text cursor for form inputs. */
 input[type="text"],
 input[type="email"],
 textarea {
   cursor: url('images/text-cursor.png') 0 0, text;
 }
 
-/* ====================================== */
-/* ====== Custom Scrollbar Theme ======== */
-/* ====================================== */
-
-
-/* --- For WebKit Browsers (Chrome, Safari, Edge) --- */
-
-/* The entire scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
 }
 
-/* The scrollbar track (the background) */
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* The draggable scrolling handle */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--color-blue-500) 0%, var(--color-blue-400) 100%);
   border-radius: var(--radius-full);
   border: 3px solid var(--color-surface);
-  /* Creates a padding effect */
 }
 
-/* The handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, var(--color-blue-400) 0%, var(--color-blue-500) 100%);
   background-clip: content-box;
-  /* Ensures the background stays inside the border */
   border: 2px solid transparent;
-  /* Creates transparent spacing */
-  /* border-radius was removed for square edges */
 }
 
-/* The corner where vertical and horizontal scrollbars meet */
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
 
-/* ADDED STYLES FOR IMAGES */
-.photo-placeholder img {
+/* Image fixes */
+.photo-placeholder img,
+.hero__photo .photo-placeholder img,
+.about__photo .photo-placeholder img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
 }
+
 .hero__photo .photo-placeholder,
 .about__photo .photo-placeholder {
   background: transparent;
-}
-.hero__photo .photo-placeholder img {
-  border-radius: 50%;
-}
-.about__photo .photo-placeholder img {
-  border-radius: 50%; /* FIXED THIS LINE */
 }

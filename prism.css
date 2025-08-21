@@ -31,7 +31,7 @@ pre[class*=language-] {
 
 :not(pre)>code[class*=language-],
 pre[class*=language-] {
-    background: #272822
+    background: #282c34
 }
 
 :not(pre)>code[class*=language-] {
@@ -484,4 +484,8 @@ div.code-toolbar>.toolbar .toolbar-item>button.copy-to-clipboard-button[data-cop
 
 div.code-toolbar>.toolbar .toolbar-item>button.copy-to-clipboard-button:hover {
   opacity: 1;
+}
+
+div.code-toolbar > .toolbar .toolbar-item > button.copy-to-clipboard-button {
+  cursor: url('images/default-cursor.png') 0 0, auto;
 }

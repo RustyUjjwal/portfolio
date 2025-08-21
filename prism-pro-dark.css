@@ -1,0 +1,176 @@
+/* --- Prism Pro Dark Theme --- */
+/* A professional, modern dark theme for Prism.js */
+
+/* Main code block styling */
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #cbd5e1; /* Default text color (Slate 300) */
+    background: none;
+    font-family: 'Fira Code', 'JetBrains Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.6;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"] {
+    padding: 1.5em;
+    margin: .5em 0;
+    overflow: auto;
+    border-radius: 0.5em; /* Rounded corners */
+    border: 1px solid #334155; /* Slate 700 */
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #1e293b; /* Dark slate background (Slate 800) */
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em .3em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+/* --- Token Colors --- */
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #64748b; /* Muted gray for comments (Slate 500) */
+}
+
+.token.punctuation {
+    color: #94a3b8; /* Lighter gray for punctuation (Slate 400) */
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #f472b6; /* Pink */
+}
+
+.token.boolean,
+.token.number {
+    color: #f59e0b; /* Amber */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #81c784; /* Green */
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #89ddff; /* Light Blue */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+    color: #fcd34d; /* Bright Yellow */
+}
+
+.token.keyword {
+    color: #c792ea; /* Purple */
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #f07178; /* Red */
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+/* --- Plugin Styles --- */
+
+/* Line Highlight */
+pre[data-line] {
+    position: relative;
+}
+
+.line-highlight {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: inherit 0;
+    margin-top: 1.5em; /* Match pre padding */
+    background: rgba(148, 163, 184, 0.08); /* Transparent slate */
+    pointer-events: none;
+    line-height: inherit;
+    white-space: pre;
+}
+
+/* Line Numbers */
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em;
+    letter-spacing: -1px;
+    border-right: 1px solid #334155; /* Slate 700 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: #64748b; /* Muted gray (Slate 500) */
+    display: block;
+    padding-right: 0.8em;
+    text-align: right;
+}
+
