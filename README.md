@@ -3,7 +3,7 @@
 ## [🪪 Live](https://ujjwal-keshri.netlify.app)  
 👆 Click on the above link to visit my portfolio
 
-## A Glimpse 
+## 🪟 A Glimpse 
 ![Glimpse Of My Portfolio](images/portfolio.gif)
 
 ---
