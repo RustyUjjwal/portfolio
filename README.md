@@ -52,6 +52,6 @@ The **Ujjwal Keshri – Dynamic Personal Portfolio** is a fully responsive, sing
 | **Libraries** | Prism.js (Syntax Highlighting) |
 | **Backend Services** | Web3Forms, Google Apps Script |
 | **Design & Layout** | Flexbox, CSS Grid, Responsive Media Queries |
-| **Fonts** | Google Fonts (Orbitron) |
+| **Fonts** | Google Fonts (Orbitron,Fira Code) |
 
 ---
