@@ -46,13 +46,13 @@
     Monaco, Consolas, monospace;
   --font-size-xs: 11px;
   --font-size-sm: 12px;
-  --font-size-base: 15px;
-  --font-size-md: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 18px;
-  --font-size-2xl: 20px;
-  --font-size-3xl: 24px;
-  --font-size-4xl: 30px;
+  --font-size-base: 16px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 44px;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 550;
@@ -294,6 +294,16 @@ a:hover {
   width: 100%;
 }
 
+.btn--icon {
+  gap: var(--space-8); /* Adds space between the icon and text */
+}
+
+.btn--icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
 /* Form elements */
 .form-control {
   display: block;
@@ -375,7 +385,10 @@ textarea.form-control {
 
 @font-face {
   font-family: 'FKGroteskNeue';
-  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+  src: url('fonts/FKGroteskNeue.woff2') format('woff2');
+
+  font-family: 'valorant';
+  src: url('fonts/Valorant\ Font.ttf') format('truetype');
 }
 
 /* ---------------------------------- */
@@ -492,12 +505,12 @@ textarea.form-control {
 }
 
 /* In light mode, show the moon icon */
-body.light-mode .theme-icon-sun {
+body.light-mode .theme-icon-moon {
   display: inline-block;
 }
 
 /* In dark mode, show the sun icon */
-body.dark-mode .theme-icon-moon {
+body.dark-mode .theme-icon-sun {
   display: inline-block;
 }
 
@@ -630,13 +643,13 @@ section:last-of-type {
 
 .hero .btn--outline {
   background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
 }
 
 .hero .btn--outline:hover {
-  background: var(--color-secondary);
-  color: var(--color-primary-active);
+  background: var(--color-white);
+  color: var(--color-gray-900);
 }
 
 .hero__photo {
@@ -701,13 +714,13 @@ body.light-mode .hero .btn--secondary:hover {
 
 body.light-mode .hero .btn--outline {
   background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
+  border: 1px solid var(--color-gray-900);
+  color: var(--color-gray-900);
 }
 
 body.light-mode .hero .btn--outline:hover {
-  background: var(--color-secondary);
-  color: var(--color-primary-active);
+  background: var(--color-gray-900);
+  color: var(--color-white);
 }
 
 body.light-mode .hero__photo {
@@ -771,7 +784,7 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .about__text {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   line-height: 1.7;
   margin-bottom: var(--space-20);
   max-width: 700px;
@@ -823,7 +836,7 @@ body.light-mode .hero .photo-placeholder {
   align-items: center;
   gap: var(--space-12);
   background: var(--color-surface);
-  padding: var(--space-8);
+  padding: var(--space-10);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   margin-top: var(--space-24);
@@ -831,7 +844,7 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .tab-btn {
-  padding: var(--space-8) var(--space-16);
+  padding: var(--space-10) var(--space-20);
   cursor: pointer;
   background: none;
   border: none;
@@ -839,9 +852,8 @@ body.light-mode .hero .photo-placeholder {
   font-weight: var(--font-weight-medium);
   display: flex;
   align-items: center;
-  gap: var(--space-8);
-  transition: all 0.25s ease-in-out;
-  
+  gap: var(--space-10);
+  transition: all 0.25s ease-in-out;  
 }
 
 .tab-btn:hover {
@@ -855,11 +867,18 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .tab-btn__icon {
-  font-size: 1.1rem;
+  width: 24px;          /* Set a consistent width */
+  height: 24px;         /* Set a consistent height */
+}
+
+.tab-btn__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the image scales properly without distortion */
 }
 
 .tab-btn__text {
-  font-size: 0.9rem;
+  font-size: 1rem;
   position: relative;
 }
 
@@ -892,7 +911,7 @@ body.light-mode .hero .photo-placeholder {
 .timeline-close-btn {
   position: absolute;
   top: var(--space-16);
-  right: var(--space-16);
+  right: var(--space-32); /* Increased from var(--space-16) */
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   color: var(--color-text);
@@ -900,6 +919,7 @@ body.light-mode .hero .photo-placeholder {
   height: 40px;
   border-radius: 50%;
   font-size: 1.5rem;
+  line-height: 1; /* Helps with vertical alignment */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1071,7 +1091,7 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .skill {
-  padding: var(--space-16);
+  padding: 16px;
   background: var(--color-background);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -1130,6 +1150,19 @@ body.light-mode .hero .photo-placeholder {
   background: linear-gradient(90deg, var(--color-blue-500) 0%, var(--color-blue-400) 100%);
 }
 
+.skill__identity {
+  display: flex;
+  align-items: center; /* Vertically centers the icon and text */
+  gap: 12px; /* Adds space between the icon and the name */
+}
+
+/* Styles the icon image itself */
+.skill__icon {
+  width: 24px;  /* Set a consistent width for all icons */
+  height: 24px; /* Set a consistent height */
+  object-fit: contain; /* Ensures the icon scales nicely without being stretched */
+}
+
 /* Projects Section */
 .projects__filters {
   display: flex;
@@ -1185,9 +1218,9 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .project-placeholder {
-  font-size: 3rem;
-  opacity: 1;
-  color: var(--color-text-secondary);
+  display: flex;
+  width: 100px;
+  height: 100px;
 }
 
 .project-card__content {
@@ -1253,9 +1286,17 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .service-card__icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-16);
-  color: var(--color-primary);
+  width: 50px;          /* Set a consistent width */
+  height: 50px;         /* Set a consistent height */
+  margin: 0 auto var(--space-24); /* Center the icon horizontally and add space below */
+  display: flex;        /* Use flexbox to center the image inside */
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card__icon img {
+  max-width: 100%;      /* Ensure image scales down to fit the container */
+  height: auto;         /* Maintain aspect ratio */
 }
 
 .service-card__title {
@@ -1283,7 +1324,7 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .contact__info>p {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   line-height: 1.6;
   margin-bottom: var(--space-32);
 }
@@ -1305,6 +1346,12 @@ body.light-mode .hero .photo-placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.contact__icon img {
+  width: 20px;  /* Adjust size to fit nicely within the 40px circle */
+  height: 20px;
+  object-fit: contain; /* Ensures the image scales correctly */
 }
 
 .contact__label {
@@ -1819,11 +1866,10 @@ body.loading {
 }
 
 .loader__brand h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 5rem;
-  font-size: 3.5rem;
+  font-family: 'Obitron', sans-serif;
+  font-size: 4rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   color: var(--color-text);
 }
 
