@@ -295,7 +295,8 @@ a:hover {
 }
 
 .btn--icon {
-  gap: var(--space-8); /* Adds space between the icon and text */
+  gap: var(--space-8);
+  /* Adds space between the icon and text */
 }
 
 .btn--icon img {
@@ -600,19 +601,33 @@ section:last-of-type {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
 }
 
 .hero__title {
+  font-family: 'Obitron', sans-serif;
+  font-weight: 700;
+  /* Bolder weight for impact */
+  letter-spacing: 2px;
   color: var(--color-blue-400);
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero__subtitle,
-.hero__intro,
 .hero .btn--outline {
   color: var(--color-white);
+}
+
+.hero__intro {
+  font-size: var(--font-size-lg);
+  /* Increases font size from 16px to 18px */
+  line-height: 1.7;
+  /* Increases spacing between lines for readability */
+  max-width: 700px;
+  /* Constrains the width for better line length */
+  color: var(--color-white);
+  /* Ensures high contrast in dark mode */
 }
 
 .hero__buttons {
@@ -672,6 +687,7 @@ section:last-of-type {
   font-size: 4rem;
 }
 
+
 /* 2. Light Mode Overrides */
 body.light-mode .hero__video--dark {
   display: none;
@@ -682,7 +698,7 @@ body.light-mode .hero__video--light {
 }
 
 body.light-mode .hero__overlay {
-  background-color: rgba(255, 255, 255, 0.486);
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 body.light-mode .hero__title {
@@ -826,10 +842,17 @@ body.light-mode .hero .photo-placeholder {
   background: var(--color-surface);
   padding: 4px;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-border);
   margin-top: var(--space-12);
   margin-bottom: var(--space-32);
 }
+.timline-buttons .btn--certificate{
+  border: 2px solid var(--color-border);
+}
+.timline-buttons .btn--certificate:hover {
+  border: 2px solid var(--color-primary);
+}
+
 
 .tab-buttons {
   display: flex;
@@ -840,20 +863,25 @@ body.light-mode .hero .photo-placeholder {
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   margin-top: var(--space-24);
-  
+
 }
+
+
 
 .tab-btn {
   padding: var(--space-10) var(--space-20);
   cursor: pointer;
-  background: none;
-  border: none;
+  background-color: rgba(17, 24, 39, 0.3);/* Subtle dark background */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);/* For Safari support */
+  border-radius: var(--radius-lg);/* 12px, from your existing variables */
+  border: 1px solid rgba(255, 255, 255, 0.1);/* A faint border to define the edge */
   color: var(--color-text-secondary);
   font-weight: var(--font-weight-medium);
   display: flex;
   align-items: center;
   gap: var(--space-10);
-  transition: all 0.25s ease-in-out;  
+  transition: all 0.25s ease-in-out;
 }
 
 .tab-btn:hover {
@@ -861,20 +889,23 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .tab-btn.active {
-  background-color: var(--color-primary);
-  color: var(--color-btn-primary-text);
-  border-radius: var(--radius-base);
+  border: 2px solid var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
 }
 
 .tab-btn__icon {
-  width: 24px;          /* Set a consistent width */
-  height: 24px;         /* Set a consistent height */
+  width: 24px;
+  /* Set a consistent width */
+  height: 24px;
+  /* Set a consistent height */
 }
 
 .tab-btn__icon img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Ensures the image scales properly without distortion */
+  object-fit: contain;
+  /* Ensures the image scales properly without distortion */
 }
 
 .tab-btn__text {
@@ -911,7 +942,7 @@ body.light-mode .hero .photo-placeholder {
 .timeline-close-btn {
   position: absolute;
   top: var(--space-16);
-  right: var(--space-32); /* Increased from var(--space-16) */
+  right: var(--space-32);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   color: var(--color-text);
@@ -919,7 +950,7 @@ body.light-mode .hero .photo-placeholder {
   height: 40px;
   border-radius: 50%;
   font-size: 1.5rem;
-  line-height: 1; /* Helps with vertical alignment */
+  line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1152,15 +1183,20 @@ body.light-mode .hero .photo-placeholder {
 
 .skill__identity {
   display: flex;
-  align-items: center; /* Vertically centers the icon and text */
-  gap: 12px; /* Adds space between the icon and the name */
+  align-items: center;
+  /* Vertically centers the icon and text */
+  gap: 12px;
+  /* Adds space between the icon and the name */
 }
 
 /* Styles the icon image itself */
 .skill__icon {
-  width: 24px;  /* Set a consistent width for all icons */
-  height: 24px; /* Set a consistent height */
-  object-fit: contain; /* Ensures the icon scales nicely without being stretched */
+  width: 24px;
+  /* Set a consistent width for all icons */
+  height: 24px;
+  /* Set a consistent height */
+  object-fit: contain;
+  /* Ensures the icon scales nicely without being stretched */
 }
 
 /* Projects Section */
@@ -1286,17 +1322,23 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .service-card__icon {
-  width: 50px;          /* Set a consistent width */
-  height: 50px;         /* Set a consistent height */
-  margin: 0 auto var(--space-24); /* Center the icon horizontally and add space below */
-  display: flex;        /* Use flexbox to center the image inside */
+  width: 50px;
+  /* Set a consistent width */
+  height: 50px;
+  /* Set a consistent height */
+  margin: 0 auto var(--space-24);
+  /* Center the icon horizontally and add space below */
+  display: flex;
+  /* Use flexbox to center the image inside */
   align-items: center;
   justify-content: center;
 }
 
 .service-card__icon img {
-  max-width: 100%;      /* Ensure image scales down to fit the container */
-  height: auto;         /* Maintain aspect ratio */
+  max-width: 100%;
+  /* Ensure image scales down to fit the container */
+  height: auto;
+  /* Maintain aspect ratio */
 }
 
 .service-card__title {
@@ -1349,9 +1391,11 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .contact__icon img {
-  width: 20px;  /* Adjust size to fit nicely within the 40px circle */
+  width: 20px;
+  /* Adjust size to fit nicely within the 40px circle */
   height: 20px;
-  object-fit: contain; /* Ensures the image scales correctly */
+  object-fit: contain;
+  /* Ensures the image scales correctly */
 }
 
 .contact__label {
@@ -1584,10 +1628,10 @@ body.light-mode .hero .photo-placeholder {
     /* Use flexbox to control alignment of children */
     display: flex;
     flex-direction: column;
-    
+
     /* Center all child elements horizontally */
     align-items: center;
-    
+
     /* Center the text inside the heading and paragraphs */
     text-align: center;
   }
@@ -1595,6 +1639,7 @@ body.light-mode .hero .photo-placeholder {
 }
 
 @media (max-width: 768px) {
+
   .project-card:hover,
   .project-card:focus-visible,
   .service-card:hover,
@@ -1799,15 +1844,20 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .modal-title-header {
-  margin-bottom: var(--space-16);}
+  margin-bottom: var(--space-16);
+}
 
 /* New styles for the tabbed modal */
 .code-lang-tabs {
-  display: flex; /* This is the key change to make the tabs horizontal */
-  align-items: center; /* Vertically aligns the tab text */
-  overflow-x: auto; /* Adds a horizontal scrollbar if tabs overflow */
+  display: flex;
+  /* This is the key change to make the tabs horizontal */
+  align-items: center;
+  /* Vertically aligns the tab text */
+  overflow-x: auto;
+  /* Adds a horizontal scrollbar if tabs overflow */
   flex-shrink: 0;
-  padding-bottom: 8px; /* Adds some space for the scrollbar */
+  padding-bottom: 8px;
+  /* Adds some space for the scrollbar */
 }
 
 .code-lang-tabs .tab-btn {
@@ -1816,19 +1866,23 @@ body.light-mode .hero .photo-placeholder {
   padding: var(--space-8) var(--space-12);
   color: var(--color-text-secondary);
   border-bottom: 2px solid transparent;
-  flex-shrink: 0; /* Prevents individual tabs from shrinking */
+  flex-shrink: 0;
+  /* Prevents individual tabs from shrinking */
 }
 
 .code-lang-tabs .tab-btn.active {
   color: var(--color-primary);
   border-bottom-color: var(--color-primary);
-  background-color: transparent; /* Override default active style */
+  background-color: transparent;
+  /* Override default active style */
 }
 
 #modal-code-block-pre {
   margin-top: var(--space-16);
-  flex-grow: 1; /* Allows the code block to take up remaining space */
-  max-height: 65vh; /* Adjust max height as needed */
+  flex-grow: 1;
+  /* Allows the code block to take up remaining space */
+  max-height: 65vh;
+  /* Adjust max height as needed */
   border: 1px solid var(--color-border);
   border-radius: var(--radius-base);
 }

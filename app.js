@@ -239,6 +239,7 @@ window.addEventListener('DOMContentLoaded', () => {
      Contact Form Validation & Dual Submission
   ------------------------------ */
   const contactForm = document.getElementById('contact-form');
+  const formFields = ['name', 'email', 'subject', 'message'];
 
   if (contactForm) {
     const validators = {
@@ -253,7 +254,7 @@ window.addEventListener('DOMContentLoaded', () => {
       let isValid = true;
       const submitButton = contactForm.querySelector('button[type="submit"]');
 
-      ['name', 'email', 'subject', 'message'].forEach(field => {
+      formFields.forEach(field => {
         const input = contactForm.elements[field];
         const errorEl = document.getElementById(`${field}-error`);
         if (input && errorEl) {
@@ -306,7 +307,7 @@ window.addEventListener('DOMContentLoaded', () => {
           .finally(() => {
             setTimeout(() => {
                 contactForm.reset();
-                ['name', 'email', 'subject', 'message'].forEach(field => {
+                formFields.forEach(field => {
                     const errorEl = document.getElementById(`${field}-error`);
                     if (errorEl) errorEl.textContent = '';
                 });
