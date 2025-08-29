@@ -118,6 +118,8 @@ body.light-mode {
   --color-secondary-active: var(--color-gray-300);
   --color-border: var(--color-gray-200);
   --color-btn-primary-text: var(--color-white);
+  --color-btn-secondary-text: rgb(0, 0, 0);
+  --color-btn-background: rgba(17, 24, 39, 0.055);
   --color-card-border: var(--color-gray-200);
   --color-card-border-inner: var(--color-gray-200);
   --color-error: var(--color-red-500);
@@ -141,7 +143,9 @@ body.dark-mode {
   --color-secondary-active: rgba(255, 255, 255, 0.15);
   --color-border: var(--color-gray-700);
   --color-btn-primary-text: var(--color-gray-900);
-  --color-card-border: var(--color-gray-700);
+  --color-btn-secondary-text: rgb(255,255,255);
+  --color-btn-background: rgba(17, 24, 39, 0.3);
+  --color-card-border: var(--color-gray-7000);
   --color-card-border-inner: var(--color-gray-700);
   --color-error: var(--color-red-400);
   --color-focus-ring: rgba(var(--color-blue-400-rgb), 0.4);
@@ -871,7 +875,7 @@ body.light-mode .hero .photo-placeholder {
 .tab-btn {
   padding: var(--space-10) var(--space-20);
   cursor: pointer;
-  background-color: rgba(17, 24, 39, 0.3);/* Subtle dark background */
+  background-color:  var(--color-btn-background);/* Subtle dark background */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);/* For Safari support */
   border-radius: var(--radius-lg);/* 12px, from your existing variables */
@@ -890,7 +894,7 @@ body.light-mode .hero .photo-placeholder {
 
 .tab-btn.active {
   border: 2px solid var(--color-primary);
-  color: var(--color-white);
+  color: var(--color-btn-secondary-text);
   border-radius: var(--radius-lg);
 }
 
