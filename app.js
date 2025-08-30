@@ -76,43 +76,38 @@ window.addEventListener('DOMContentLoaded', () => {
   initLoader();
 
   /* ------------------------------
-     Theme (Light/Dark Mode) Toggle
-  ------------------------------ */
-  function updatePrismTheme(theme) {
-    const prismThemeLink = document.getElementById('prism-theme');
-    if (prismThemeLink) {
-      prismThemeLink.href = theme === 'dark' ? 'prism-pro-dark.css' : 'prism-pro-light.css';
-    }
-  }
-  
-  const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
-  const darkVideo = document.querySelector('.hero__video--dark');
-  const lightVideo = document.querySelector('.hero__video--light');
+   Theme Toggle
+------------------------------ */
+const themeToggle = document.getElementById('theme-toggle');
+const docElement = document.documentElement;
+const body = document.body; 
+const darkVideo = document.querySelector('.hero__video--dark');
+const lightVideo = document.querySelector('.hero__video--light');
 
-  const applyTheme = (theme) => {
+const applyTheme = (theme) => {
+    const themeClass = theme + '-mode';
+    docElement.classList.remove('light-mode', 'dark-mode');
     body.classList.remove('light-mode', 'dark-mode');
-    body.classList.add(theme + '-mode');
-    // Add this line to update the Prism theme
-    updatePrismTheme(theme); 
-  };
+    docElement.classList.add(themeClass);
+    body.classList.add(themeClass);
+};
 
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
     applyTheme(savedTheme);
-  } else {
+} else {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     applyTheme(prefersDark ? 'dark' : 'light');
-  }
+}
 
-  themeToggle.addEventListener('click', () => {
-    const isDarkMode = body.classList.contains('dark-mode');
+themeToggle.addEventListener('click', () => {
+    const isDarkMode = docElement.classList.contains('dark-mode');
     let currentTime = 0;
 
     if (isDarkMode && darkVideo) {
-      currentTime = darkVideo.currentTime;
+        currentTime = darkVideo.currentTime;
     } else if (!isDarkMode && lightVideo) {
-      currentTime = lightVideo.currentTime;
+        currentTime = lightVideo.currentTime;
     }
 
     const newTheme = isDarkMode ? 'light' : 'dark';
@@ -120,13 +115,13 @@ window.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('theme', newTheme);
 
     if (newTheme === 'light' && lightVideo) {
-      lightVideo.currentTime = currentTime;
-      lightVideo.play();
+        lightVideo.currentTime = currentTime;
+        lightVideo.play();
     } else if (newTheme === 'dark' && darkVideo) {
-      darkVideo.currentTime = currentTime;
-      darkVideo.play();
+        darkVideo.currentTime = currentTime;
+        darkVideo.play();
     }
-  });
+});
 
   /* ------------------------------
      Mobile Navigation Toggle
@@ -399,7 +394,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ------------------------------
-     Code Snippet Modal (FIXED)
+     Code Snippet Modal 
   ------------------------------ */
   let projectCodeSnippets = {};
   const modalOverlay = document.getElementById('code-modal');

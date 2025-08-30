@@ -1,0 +1,265 @@
+/* --- Prism Pro Combined Theme (Dark Default) --- */
+
+/* ==========================================================================
+   1. BASE STYLES (Dark Theme)
+   ========================================================================== */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    background: none;
+    font-family: 'Fira Code', 'JetBrains Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.6;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    /* --- Dark Theme Color --- */
+    color: #cbd5e1; /* Slate 300 */
+}
+
+pre[class*="language-"] {
+    padding: 1.5em;
+    margin: .5em 0;
+    overflow: auto;
+    border-radius: 0.5em;
+    /* --- Dark Theme Border --- */
+    border: 1px solid #334155; /* Slate 700 */
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    /* --- Dark Theme Background --- */
+    background: #1e293b; /* Slate 800 */
+}
+
+:not(pre) > code[class*="language-"] {
+    padding: .1em .3em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+/* --- Token Colors (Dark Theme) --- */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #64748b; /* Slate 500 */
+}
+
+.token.punctuation {
+    color: #94a3b8; /* Slate 400 */
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #f472b6; /* Pink */
+}
+
+.token.boolean,
+.token.number {
+    color: #f59e0b; /* Amber */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #81c784; /* Green */
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #89ddff; /* Light Blue */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+    color: #fcd34d; /* Bright Yellow */
+}
+
+.token.keyword {
+    color: #c792ea; /* Purple */
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #f07178; /* Red */
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+/* --- Plugin Styles (Dark Theme) --- */
+pre[data-line] {
+    position: relative;
+}
+
+.line-highlight {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: inherit 0;
+    margin-top: 1.5em;
+    background: rgba(148, 163, 184, 0.08); /* Transparent slate */
+    pointer-events: none;
+    line-height: inherit;
+    white-space: pre;
+}
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em;
+    letter-spacing: -1px;
+    border-right: 1px solid #334155; /* Slate 700 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: #64748b; /* Slate 500 */
+    display: block;
+    padding-right: 0.8em;
+    text-align: right;
+}
+
+/* ==========================================================================
+   2. LIGHT MODE OVERRIDES
+   ========================================================================== */
+
+.light-mode code[class*="language-"],
+.light-mode pre[class*="language-"] {
+    color: #334155; /* Slate 700 */
+}
+
+.light-mode pre[class*="language-"] {
+    border-color: #e2e8f0; /* Slate 200 */
+}
+
+.light-mode :not(pre) > code[class*="language-"],
+.light-mode pre[class*="language-"] {
+    background: #f8fafc; /* Slate 50 */
+}
+
+/* --- Token Colors (Light Theme) --- */
+.light-mode .token.comment,
+.light-mode .token.prolog,
+.light-mode .token.doctype,
+.light-mode .token.cdata {
+    color: #94a3b8; /* Slate 400 */
+}
+
+.light-mode .token.punctuation {
+    color: #64748b; /* Slate 500 */
+}
+
+.light-mode .token.property,
+.light-mode .token.tag,
+.light-mode .token.constant,
+.light-mode .token.symbol,
+.light-mode .token.deleted {
+    color: #db2777; /* Pink */
+}
+
+.light-mode .token.boolean,
+.light-mode .token.number {
+    color: #d97706; /* Amber */
+}
+
+.light-mode .token.selector,
+.light-mode .token.attr-name,
+.light-mode .token.string,
+.light-mode .token.char,
+.light-mode .token.builtin,
+.light-mode .token.inserted {
+    color: #16a34a; /* Green */
+}
+
+.light-mode .token.operator,
+.light-mode .token.entity,
+.light-mode .token.url,
+.light-mode .language-css .token.string,
+.light-mode .style .token.string {
+    color: #0284c7; /* Sky Blue */
+}
+
+.light-mode .token.atrule,
+.light-mode .token.attr-value,
+.light-mode .token.function,
+.light-mode .token.class-name {
+    color: #ca8a04; /* Yellow */
+}
+
+.light-mode .token.keyword {
+    color: #9333ea; /* Purple */
+}
+
+.light-mode .token.regex,
+.light-mode .token.important,
+.light-mode .token.variable {
+    color: #dc2626; /* Red */
+}
+
+/* --- Plugin Styles (Light Theme) --- */
+.light-mode .line-highlight {
+    background: rgba(203, 213, 225, 0.4); /* Transparent slate */
+}
+
+.light-mode .line-numbers .line-numbers-rows {
+    border-right-color: #e2e8f0; /* Slate 200 */
+}
+
+.light-mode .line-numbers-rows > span:before {
+    color: #94a3b8; /* Slate 400 */
+}
