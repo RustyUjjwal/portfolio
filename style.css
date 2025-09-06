@@ -209,6 +209,10 @@ body {
   transition: background-color var(--duration-normal), color var(--duration-normal);
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 *,
 *::before,
 *::after {
@@ -1885,26 +1889,34 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .code-lang-tabs {
-  display: flex;
+  display:  flex;
+  flex-wrap: wrap;
   align-items: center;
   overflow-x: auto;
   flex-shrink: 0;
-  padding-bottom: 8px;
+  padding-bottom: var(--space-8);;
+  gap: var(--space-6);
 }
 
 .code-lang-tabs .tab-btn {
-  background: none;
-  border: none;
-  padding: var(--space-8) var(--space-12);
-  color: var(--color-text-secondary);
+  background: transparent;
+  border-color:transparent;
   border-bottom: 2px solid transparent;
+  padding: var(--space-8);
+  color: var(--color-text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
   flex-shrink: 0;
 }
 
+.code-lang-tabs .tab-btn:hover {
+  color: var(--color-text); /* Text becomes brighter on hover */
+}
+
 .code-lang-tabs .tab-btn.active {
-  color: var(--color-primary);
-  border-bottom-color: var(--color-primary);
-  background-color: transparent;
+  border-bottom-color: var(--color-primary); /* The underline appears */
 }
 
 #modal-code-block-pre {

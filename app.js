@@ -132,6 +132,7 @@ themeToggle.addEventListener('click', () => {
     navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('active');
       navMenu.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
     });
   }
 
@@ -452,6 +453,7 @@ themeToggle.addEventListener('click', () => {
 
             // Show the modal
             modalOverlay.classList.remove('hidden');
+            document.body.classList.add('no-scroll');
           } else {
             console.error(`No data or files found for project: ${projectId}`);
           }
@@ -479,6 +481,7 @@ themeToggle.addEventListener('click', () => {
   // Logic for closing the modal (remains the same)
   const closeModal = () => {
     modalOverlay.classList.add('hidden');
+    document.body.classList.remove('no-scroll');
   };
 
   modalCloseBtn.addEventListener('click', closeModal);
