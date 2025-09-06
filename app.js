@@ -1,4 +1,3 @@
-// app.js - Portfolio interactivity
 function debounce(func, delay = 100) {
   let timeout;
   return (...args) => {
@@ -43,7 +42,6 @@ window.addEventListener('DOMContentLoaded', () => {
         videoPromises.push(promise);
       }
     });
-
     return Promise.all(videoPromises);
   }
 

@@ -26,12 +26,13 @@
 /* ===== Font Set ====== */
 @font-face {
   font-family: 'FKGroteskNeue';
-  src: url('fonts/FKGroteskNeue.woff2') format('woff2');
+  src: url('fonts/FKGroteskNeue.woff2') format('woff2'),
+       url('fonts/FKGroteskNeue.woff') format('woff');
 }
 
 @font-face {
   font-family: 'valorant';
-  src: url('fonts/Valorant\ Font.ttf') format('truetype');
+  src: url('fonts/ValorantFont.ttf') format('truetype');
 }
 
 :root {
@@ -192,6 +193,7 @@ html {
   font-family: var(--font-family-base);
   line-height: var(--line-height-normal);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
@@ -358,6 +360,8 @@ a:hover {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-base);
   transition: border-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 textarea.form-control {
@@ -455,7 +459,6 @@ textarea.form-control {
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 1px;
 }
-
 .nav__menu {
   display: flex;
   list-style: none;
@@ -597,7 +600,8 @@ section:last-of-type {
 
 /* ===== Hero Section ====== */
 .hero {
-  min-height: 80vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   position: relative;
@@ -655,7 +659,6 @@ section:last-of-type {
 .hero__title {
   font-family: 'Obitron', sans-serif;
   font-weight: 700;
-  /* Bolder weight for impact */
   letter-spacing: 2px;
   color: var(--color-blue-400);
   text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
@@ -1389,6 +1392,7 @@ body.light-mode .hero .photo-placeholder {
     box-shadow 0.3s;
   will-change: transform;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .project-card:hover,
