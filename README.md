@@ -19,7 +19,7 @@ The **Dynamic Personal Portfolio** is a fully responsive, single-page website de
   Mobile-first layout that adapts flawlessly to all screen sizes, ensuring optimal viewing on desktops, tablets, and smartphones.  
 
 - **Dual-Theme System**  
-  Includes a light/dark mode toggle with user preference stored in `localStorage` for seamless theme persistence across visits.  
+  Includes a light/dark mode toggle with user preference stored in `localStorage` for seamless theme persistence across visits. 
 
 - **Dynamic Hero Section**  
   Theme-synced background videos paired with a typewriter effect cycling through professional titles for a striking first impression.  
