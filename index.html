@@ -359,7 +359,8 @@
                         <div class="skill" data-skill="PLC Programming" data-level="82">
                             <div class="skill__info">
                                 <div class="skill__identity">
-                                    <img src="resources/plc.png" alt="PLC Programming (Ladder Logic)" class="skill__icon">
+                                    <img src="resources/plc.png" alt="PLC Programming (Ladder Logic)"
+                                        class="skill__icon">
                                     <span class="skill__name">PLC Programming (Ladder Logic)</span>
                                 </div>
                                 <span class="skill__percentage">82%</span>
@@ -525,7 +526,41 @@
             <div class="projects__grid">
                 <div class="project-card" data-category="embedded">
                     <div class="project-card__image">
-                        <div class="project-placeholder"> <img src="resources/solar.png" alt="solar tracking"> </div>
+                        <div class="project-carousel">
+                            <div class="project-carousel__track">
+                                <div class="project-carousel__slide project-carousel__slide--icon">
+                                    <img src="resources/solar.png" alt="Solar Tracker Hardware" loading="lazy">
+                                </div>
+                                <div class="project-carousel__slide">
+                                    <img src="https://placehold.co/600x400/1e293b/ffffff?text=Dashboard"
+                                        alt="Solar Tracker Dashboard" loading="lazy">
+                                </div>
+                                <div class="project-carousel__slide">
+                                    <img src="https://placehold.co/600x400/334155/ffffff?text=Circuit"
+                                        alt="Solar Tracker Mobile View" loading="lazy">
+                                </div>
+                            </div>
+
+                            <button class="project-carousel__nav project-carousel__nav--prev"
+                                aria-label="Previous image">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="15,18 9,12 15,6"></polyline>
+                                </svg>
+                            </button>
+                            <button class="project-carousel__nav project-carousel__nav--next" aria-label="Next image">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="9,18 15,12 9,6"></polyline>
+                                </svg>
+                            </button>
+
+                            <div class="project-carousel__indicators">
+                                <div class="project-carousel__indicator active"></div>
+                                <div class="project-carousel__indicator"></div>
+                                <div class="project-carousel__indicator"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-card__content">
                         <h3 class="project-card__title">Automated Solar Tracking System</h3>
@@ -547,8 +582,38 @@
 
                 <div class="project-card" data-category="embedded">
                     <div class="project-card__image">
-                        <div class="project-placeholder"> <img src="resources/weather.png"
-                                alt="Weather Monitoring Station"> </div>
+                        <div class="project-carousel">
+                            <div class="project-carousel__track">
+                                <div class="project-carousel__slide project-carousel__slide--icon">
+                                    <img src="resources/weather.png" alt="Weather Monitoring Station Hardware" loading="lazy">
+                                </div>
+                                <div class="project-carousel__slide">
+                                    <img src="https://placehold.co/600x400/1e293b/ffffff?text=Dashboard" alt="Weather Data Dashboard" loading="lazy">
+                                </div>
+                                <div class="project-carousel__slide">
+                                    <img src="https://placehold.co/600x400/334155/ffffff?text=Circuit" alt="Weather Station Circuit" loading="lazy">
+                                </div>
+                            </div>
+
+                            <!-- Navigation buttons -->
+                            <button class="project-carousel__nav project-carousel__nav--prev" aria-label="Previous image">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                  <polyline points="15,18 9,12 15,6"></polyline>
+                                </svg>
+                            </button>
+                            <button class="project-carousel__nav project-carousel__nav--next" aria-label="Next image">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                  <polyline points="9,18 15,12 9,6"></polyline>
+                                </svg>
+                            </button>
+
+                            <!-- Indicators (one for each slide) -->
+                            <div class="project-carousel__indicators">
+                                <div class="project-carousel__indicator active"></div>
+                                <div class="project-carousel__indicator"></div>
+                                <div class="project-carousel__indicator"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-card__content">
                         <h3 class="project-card__title">IoT Weather Monitoring Station</h3>
@@ -569,7 +634,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -591,7 +655,8 @@
                         proof-of-concept and final products.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-card__icon"><img src="resources/automation.png" alt="Control & Automation"></div>
+                    <div class="service-card__icon"><img src="resources/automation.png" alt="Control & Automation">
+                    </div>
                     <h3 class="service-card__title">Control & Automation</h3>
                     <p class="service-card__description">Control system modeling, simulation, and implementation for
                         industrial automation.</p>

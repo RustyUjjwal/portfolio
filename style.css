@@ -1276,7 +1276,7 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .project-card__image {
-  height: 200px;
+  aspect-ratio: 16 / 9;
   background-color: var(--color-secondary);
   display: flex;
   align-items: center;
@@ -1595,6 +1595,8 @@ body.light-mode .hero .photo-placeholder {
 .footer .social-link:hover {
   transform: none;
 }
+
+
 
 /* ===== Responsive Design ====== */
 @media (max-width: 992px) {
@@ -2071,4 +2073,196 @@ textarea {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ===== Project Card Carousel Styles ====== */
+.project-card__image {
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background-color: var(--color-secondary);
+}
+
+.project-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.project-carousel__track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-carousel__slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-secondary);
+}
+
+.project-carousel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.project-carousel__slide--icon img {
+  height: 50%;         /* Makes the icon smaller */
+  width: auto;         /* Maintains aspect ratio */
+  max-width: 50%;      /* Prevents the icon from becoming too wide */
+  object-fit: contain; /* Ensures the entire icon is visible without cropping */
+}
+
+.project-carousel__slide:hover img {
+  transform: scale(1.05);
+}
+
+/* Carousel Navigation */
+.project-carousel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  z-index: 10;
+}
+
+.project-carousel__nav:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.project-carousel__nav--prev {
+  left: 12px;
+}
+
+.project-carousel__nav--next {
+  right: 12px;
+}
+
+.project-card:hover .project-carousel__nav {
+  opacity: 1;
+}
+
+/* Carousel Indicators */
+.project-carousel__indicators {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-carousel__indicators {
+  opacity: 1;
+}
+
+.project-carousel__indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-carousel__indicator.active {
+  background: var(--color-primary);
+  transform: scale(1.2);
+}
+
+.project-carousel__indicator:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Fallback for single image or placeholder */
+.project-placeholder {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  transition: transform 0.3s ease;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .project-carousel__nav {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
+    width: 32px;
+    height: 32px;
+  }
+  
+  .project-carousel__indicators {
+    opacity: 1;
+  }
+  
+  .project-carousel__indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .project-carousel__nav,
+  .project-carousel__indicators {
+    opacity: 1;
+  }
+}
+
+/* ===== 404 Error Page Styles ====== */
+.error-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  text-align: center;
+  padding: var(--space-24);
+}
+
+.error-content {
+  max-width: 500px;
+}
+
+.error-code {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(6rem, 25vw, 12rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-primary);
+  text-shadow: 4px 4px 0px var(--color-surface);
+  margin-bottom: var(--space-16);
+}
+
+.error-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+.error-message {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-32);
 }
