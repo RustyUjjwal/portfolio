@@ -76,36 +76,36 @@ window.addEventListener('DOMContentLoaded', () => {
   /* ------------------------------
    Theme Toggle
 ------------------------------ */
-const themeToggle = document.getElementById('theme-toggle');
-const docElement = document.documentElement;
-const body = document.body; 
-const darkVideo = document.querySelector('.hero__video--dark');
-const lightVideo = document.querySelector('.hero__video--light');
+  const themeToggle = document.getElementById('theme-toggle');
+  const docElement = document.documentElement;
+  const body = document.body;
+  const darkVideo = document.querySelector('.hero__video--dark');
+  const lightVideo = document.querySelector('.hero__video--light');
 
-const applyTheme = (theme) => {
+  const applyTheme = (theme) => {
     const themeClass = theme + '-mode';
     docElement.classList.remove('light-mode', 'dark-mode');
     body.classList.remove('light-mode', 'dark-mode');
     docElement.classList.add(themeClass);
     body.classList.add(themeClass);
-};
+  };
 
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
     applyTheme(savedTheme);
-} else {
+  } else {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     applyTheme(prefersDark ? 'dark' : 'light');
-}
+  }
 
-themeToggle.addEventListener('change', () => {
+  themeToggle.addEventListener('change', () => {
     const isDarkMode = docElement.classList.contains('dark-mode');
     let currentTime = 0;
 
     if (isDarkMode && darkVideo) {
-        currentTime = darkVideo.currentTime;
+      currentTime = darkVideo.currentTime;
     } else if (!isDarkMode && lightVideo) {
-        currentTime = lightVideo.currentTime;
+      currentTime = lightVideo.currentTime;
     }
 
     const newTheme = isDarkMode ? 'light' : 'dark';
@@ -113,13 +113,13 @@ themeToggle.addEventListener('change', () => {
     localStorage.setItem('theme', newTheme);
 
     if (newTheme === 'light' && lightVideo) {
-        lightVideo.currentTime = currentTime;
-        lightVideo.play();
+      lightVideo.currentTime = currentTime;
+      lightVideo.play();
     } else if (newTheme === 'dark' && darkVideo) {
-        darkVideo.currentTime = currentTime;
-        darkVideo.play();
+      darkVideo.currentTime = currentTime;
+      darkVideo.play();
     }
-});
+  });
 
   /* ------------------------------
      Mobile Navigation Toggle
@@ -154,7 +154,7 @@ themeToggle.addEventListener('change', () => {
 
     sections.forEach(current => {
       const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 150;
+      const sectionTop = current.offsetTop - 600;
       const sectionId = current.getAttribute('id');
       const link = document.querySelector(`.nav__link[href="#${sectionId}"]`);
 
@@ -165,7 +165,7 @@ themeToggle.addEventListener('change', () => {
       }
     });
   }
-  window.addEventListener('scroll', debounce(activateNavLink));
+  window.addEventListener('scroll', debounce(activateNavLink)); // Run once on page load to highlight the initial section
 
   /* ------------------------------
      Interactive Skills Section
@@ -229,9 +229,9 @@ themeToggle.addEventListener('change', () => {
     });
   });
 
-/* ------------------------------
-     Contact Form Validation & Dual Submission
-  ------------------------------ */
+  /* ------------------------------
+       Contact Form Validation & Dual Submission
+    ------------------------------ */
   const contactForm = document.getElementById('contact-form');
   const formFields = ['name', 'email', 'subject', 'message'];
 
@@ -273,23 +273,23 @@ themeToggle.addEventListener('change', () => {
         const web3FormsURL = 'https://api.web3forms.com/submit';
 
         const web3FormsPromise = fetch(web3FormsURL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: json
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: json
         }).then(res => res.json());
 
         const googleScriptPromise = fetch(googleScriptURL, {
-            method: 'POST',
-            body: formData
+          method: 'POST',
+          body: formData
         }).then(res => res.json());
 
         Promise.all([web3FormsPromise, googleScriptPromise])
           .then(([web3FormsData, googleScriptData]) => {
             if (web3FormsData.success) {
-                submitButton.textContent = 'Message Sent!';
+              submitButton.textContent = 'Message Sent!';
             } else {
-                console.error('Error from Web3Forms:', web3FormsData.message);
-                submitButton.textContent = 'Submission Failed';
+              console.error('Error from Web3Forms:', web3FormsData.message);
+              submitButton.textContent = 'Submission Failed';
             }
             console.log('Google Script submission status:', googleScriptData.result);
           })
@@ -300,13 +300,13 @@ themeToggle.addEventListener('change', () => {
           })
           .finally(() => {
             setTimeout(() => {
-                contactForm.reset();
-                formFields.forEach(field => {
-                    const errorEl = document.getElementById(`${field}-error`);
-                    if (errorEl) errorEl.textContent = '';
-                });
-                submitButton.textContent = 'Send Message';
-                submitButton.disabled = false;
+              contactForm.reset();
+              formFields.forEach(field => {
+                const errorEl = document.getElementById(`${field}-error`);
+                if (errorEl) errorEl.textContent = '';
+              });
+              submitButton.textContent = 'Send Message';
+              submitButton.disabled = false;
             }, 3000);
           });
       }
@@ -366,7 +366,7 @@ themeToggle.addEventListener('change', () => {
     aboutContainer.classList.remove('timeline-active');
     tabButtons.forEach(btn => btn.classList.remove('active'));
     if (myselfButton) {
-        myselfButton.classList.add('active');
+      myselfButton.classList.add('active');
     }
   };
 
@@ -374,17 +374,17 @@ themeToggle.addEventListener('change', () => {
 
   tabButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const tab = button.dataset.tab;
-        if (tab === 'education' || tab === 'experience') {
-            aboutContainer.classList.add('timeline-active');
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            tabContents.forEach(content => {
-                content.classList.toggle('active', content.id === `${tab}-content`);
-            });
-        } else {
-            showDefaultView();
-        }
+      const tab = button.dataset.tab;
+      if (tab === 'education' || tab === 'experience') {
+        aboutContainer.classList.add('timeline-active');
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        tabContents.forEach(content => {
+          content.classList.toggle('active', content.id === `${tab}-content`);
+        });
+      } else {
+        showDefaultView();
+      }
     });
   });
 
@@ -405,75 +405,75 @@ themeToggle.addEventListener('change', () => {
 
   // Function to update the code displayed in the modal
   function updateCodeBlock(code, lang) {
-      modalCode.textContent = code.trim();
-      modalCode.className = `language-${lang}`;
-      modalCodePre.className = `line-numbers language-${lang}`;
-      Prism.highlightAll();
+    modalCode.textContent = code.trim();
+    modalCode.className = `language-${lang}`;
+    modalCodePre.className = `line-numbers language-${lang}`;
+    Prism.highlightAll();
   }
-  
+
   // Function to set up the click listeners for all "Source Code" buttons
   function setupModalButtons() {
-      const sourceCodeBtns = document.querySelectorAll('.source-code-btn');
-      sourceCodeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const projectId = btn.getAttribute('data-project');
-          const projectData = projectCodeSnippets[projectId];
+    const sourceCodeBtns = document.querySelectorAll('.source-code-btn');
+    sourceCodeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const projectId = btn.getAttribute('data-project');
+        const projectData = projectCodeSnippets[projectId];
 
-          if (projectData && projectData.files) {
-            // Clear any existing tabs
-            modalTabsContainer.innerHTML = '';
-            
-            // Set the project title in the modal
-            modalProjectTitle.textContent = projectData.title;
+        if (projectData && projectData.files) {
+          // Clear any existing tabs
+          modalTabsContainer.innerHTML = '';
 
-            const files = projectData.files;
-            const fileNames = Object.keys(files);
+          // Set the project title in the modal
+          modalProjectTitle.textContent = projectData.title;
 
-            // Create a tab button for each file
-            fileNames.forEach((fileName, index) => {
-                const fileInfo = files[fileName];
-                const button = document.createElement('button');
-                button.textContent = fileName;
-                button.className = 'tab-btn text-sm font-medium text-gray-400 hover:text-white pb-2 flex-shrink-0';
-                button.dataset.lang = fileInfo.lang;
-                
-                button.addEventListener('click', () => {
-                    modalTabsContainer.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                    button.classList.add('active');
-                    updateCodeBlock(fileInfo.code, fileInfo.lang);
-                });
+          const files = projectData.files;
+          const fileNames = Object.keys(files);
 
-                modalTabsContainer.appendChild(button);
+          // Create a tab button for each file
+          fileNames.forEach((fileName, index) => {
+            const fileInfo = files[fileName];
+            const button = document.createElement('button');
+            button.textContent = fileName;
+            button.className = 'tab-btn text-sm font-medium text-gray-400 hover:text-white pb-2 flex-shrink-0';
+            button.dataset.lang = fileInfo.lang;
 
-                if (index === 0) {
-                    button.classList.add('active');
-                    updateCodeBlock(fileInfo.code, fileInfo.lang);
-                }
+            button.addEventListener('click', () => {
+              modalTabsContainer.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+              button.classList.add('active');
+              updateCodeBlock(fileInfo.code, fileInfo.lang);
             });
 
-            // Show the modal
-            modalOverlay.classList.remove('hidden');
-            document.body.classList.add('no-scroll');
-          } else {
-            console.error(`No data or files found for project: ${projectId}`);
-          }
-        });
+            modalTabsContainer.appendChild(button);
+
+            if (index === 0) {
+              button.classList.add('active');
+              updateCodeBlock(fileInfo.code, fileInfo.lang);
+            }
+          });
+
+          // Show the modal
+          modalOverlay.classList.remove('hidden');
+          document.body.classList.add('no-scroll');
+        } else {
+          console.error(`No data or files found for project: ${projectId}`);
+        }
       });
+    });
   }
 
   // Fetch the snippets, and ONLY when it's done, set up the buttons
   fetch('snippets.json')
     .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
     })
     .then(data => {
       projectCodeSnippets = data;
       // *** THIS IS THE IMPORTANT PART ***
       // We now call the function to add listeners AFTER the data is loaded.
-      setupModalButtons(); 
+      setupModalButtons();
     })
     .catch(error => console.error('Error loading or parsing code snippets:', error));
 
@@ -495,39 +495,39 @@ themeToggle.addEventListener('change', () => {
   /* ------------------------------
    Animated Counter on Scroll
 ------------------------------ */
-function animatedCounter() {
-  const counters = document.querySelectorAll('.highlight__number');
-  if (!counters.length) return;
+  function animatedCounter() {
+    const counters = document.querySelectorAll('.highlight__number');
+    if (!counters.length) return;
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const counter = entry.target;
-        const target = +counter.getAttribute('data-target');
-        const duration = 1500;
-        let current = 0;
-        counter.textContent = '0+';
-        const increment = target / (duration / 16); 
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = +counter.getAttribute('data-target');
+          const duration = 1500;
+          let current = 0;
+          counter.textContent = '0+';
+          const increment = target / (duration / 16);
 
-        const updateCounter = () => {
-          current += increment;
-          if (current < target) {
-            counter.textContent = Math.ceil(current) + '+';
-            requestAnimationFrame(updateCounter);
-          } else {
-            counter.textContent = target + '+';
-          }
-        };
-        requestAnimationFrame(updateCounter);
-        observer.unobserve(counter);
-      }
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              counter.textContent = Math.ceil(current) + '+';
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target + '+';
+            }
+          };
+          requestAnimationFrame(updateCounter);
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    counters.forEach(counter => {
+      observer.observe(counter);
     });
-  }, { threshold: 0.2 });
+  }
+  animatedCounter();
 
-  counters.forEach(counter => {
-    observer.observe(counter);
-  });
-}
-animatedCounter();
-  
 });
