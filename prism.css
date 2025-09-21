@@ -474,11 +474,11 @@ div.code-toolbar>.toolbar .toolbar-item>button.copy-to-clipboard-button span {
 }
 
 div.code-toolbar>.toolbar .toolbar-item>button.copy-to-clipboard-button[data-copy-state="copy"] {
-  background-image: url('images/copy-icon.png');
+  background-image: url('resources/copy-icon.png');
 }
 
 div.code-toolbar>.toolbar .toolbar-item>button.copy-to-clipboard-button[data-copy-state="copy-success"] {
-  background-image: url('images/checkmark-icon.png');
+  background-image: url('resources/checkmark-icon.png');
   opacity: 1;
 }
 
@@ -487,5 +487,5 @@ div.code-toolbar>.toolbar .toolbar-item>button.copy-to-clipboard-button:hover {
 }
 
 div.code-toolbar > .toolbar .toolbar-item > button.copy-to-clipboard-button {
-  cursor: url('images/default-cursor.png') 0 0, auto;
+  cursor: url('resources/default-cursor.png') 0 0, auto;
 }

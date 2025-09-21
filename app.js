@@ -98,7 +98,7 @@ if (savedTheme) {
     applyTheme(prefersDark ? 'dark' : 'light');
 }
 
-themeToggle.addEventListener('click', () => {
+themeToggle.addEventListener('change', () => {
     const isDarkMode = docElement.classList.contains('dark-mode');
     let currentTime = 0;
 

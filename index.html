@@ -38,7 +38,7 @@
     <div class="loader" id="loader">
         <div class="loader__content">
             <div class="loader__brand">
-                <h1>UJJWAL KESHRI</h1>
+                <h1 class="glitch" data-glitch="UJJWAL KESHRI">UJJWAL KESHRI</h1>
                 <p>ELECTRICAL ENGINEER</p>
             </div>
             <div class="loader__progress-container">
@@ -78,10 +78,18 @@
                 </li>
             </ul>
             <div class="nav_right_cluster">
-                <button class="theme-toggle" id="theme-toggle" title="Toggle light/dark mode">
-                    <span class="theme-icon-sun">☀️</span>
-                    <span class="theme-icon-moon">🌙</span>
-                </button>
+                <div class="switch-wrapper">
+                    <input type="checkbox" id="theme-toggle" />
+                    <label for="theme-toggle" class="toggle">
+                        <span>
+                            <svg viewBox="0 0 10 10">
+                                <path
+                                    d="M5,1 L5,1 C2.790861,1 1,2.790861 1,5 L1,5 C1,7.209139 2.790861,9 5,9 L5,9 C7.209139,9 9,7.209139 9,5 L9,5 C9,2.790861 7.209139,1 5,1 L5,9 L5,1 Z">
+                                </path>
+                            </svg>
+                        </span>
+                    </label>
+                </div>
                 <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
                     aria-controls="nav-menu">
                     <span></span>
@@ -205,7 +213,7 @@
                                 <p class="timeline__date">2022</p>
                                 <ul class="timeline__description">
                                     <p>Stream: Science (PCMC)</p>
-                                    <p>Percentage: 92.6%</p>
+                                    <p>Percentage: 88.60%</p>
                                 </ul>
                             </div>
                             <div class="timeline__item">
@@ -213,7 +221,7 @@
                                 <p class="timeline__subtitle">DAV Public School | CDA-6, Cuttack, Odisha</p>
                                 <p class="timeline__date">2020</p>
                                 <ul class="timeline__description">
-                                    <p>Percentage: 92.6%</p>
+                                    <p>Percentage: 89.80%</p>
                                 </ul>
                             </div>
                         </div>
@@ -359,7 +367,8 @@
                         <div class="skill" data-skill="PLC Programming" data-level="82">
                             <div class="skill__info">
                                 <div class="skill__identity">
-                                    <img src="resources/plc.png" alt="PLC Programming (Ladder Logic)" class="skill__icon">
+                                    <img src="resources/plc.png" alt="PLC Programming (Ladder Logic)"
+                                        class="skill__icon">
                                     <span class="skill__name">PLC Programming (Ladder Logic)</span>
                                 </div>
                                 <span class="skill__percentage">82%</span>
@@ -591,7 +600,8 @@
                         proof-of-concept and final products.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-card__icon"><img src="resources/automation.png" alt="Control & Automation"></div>
+                    <div class="service-card__icon"><img src="resources/automation.png" alt="Control & Automation">
+                    </div>
                     <h3 class="service-card__title">Control & Automation</h3>
                     <p class="service-card__description">Control system modeling, simulation, and implementation for
                         industrial automation.</p>
