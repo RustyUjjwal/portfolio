@@ -17,6 +17,26 @@ window.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('loading');
 
   /* ------------------------------
+       Header Scroll Effect
+    ------------------------------ */
+  const header = document.querySelector('.header');
+  let lastScrollY = window.scrollY;
+
+  function updateHeader() {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    
+    lastScrollY = currentScrollY;
+  }
+
+  window.addEventListener('scroll', debounce(updateHeader, 10));
+
+  /* ------------------------------
        Loader & Video Preloading
     ------------------------------ */
   const loader = document.getElementById('loader');
@@ -196,12 +216,15 @@ window.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        fadeObserver.unobserve(entry.target);
+        // Don't unobserve to allow re-triggering
       }
     });
-  }, { threshold: 0.2 });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
 
-  document.querySelectorAll('section, .project-card, .service-card').forEach(el => {
+  document.querySelectorAll('section, .project-card, .service-card, .skill, .highlight').forEach(el => {
     el.classList.add('fade-in');
     fadeObserver.observe(el);
   });
@@ -320,7 +343,14 @@ window.addEventListener('DOMContentLoaded', () => {
     const targetElement = document.getElementById('typewriter-text');
     if (!targetElement) return;
 
-    const words = ["Electrical Engineer", "Innovator", "Problem Solver", "Embedded Systems Dev"];
+    const words = [
+      "⚡ Electrical Engineer", 
+      "💡 Innovator", 
+      "🔧 Problem Solver", 
+      "🚀 Embedded Systems Dev",
+      "🎯 Circuit Designer",
+      "🤖 Automation Expert"
+    ];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -335,11 +365,11 @@ window.addEventListener('DOMContentLoaded', () => {
         charIndex++;
       }
 
-      let typeSpeed = 150;
+      let typeSpeed = 100;
       if (isDeleting) typeSpeed /= 2;
 
       if (!isDeleting && charIndex === currentWord.length) {
-        typeSpeed = 2000;
+        typeSpeed = 3000;
         isDeleting = true;
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
@@ -504,10 +534,10 @@ window.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           const counter = entry.target;
           const target = +counter.getAttribute('data-target');
-          const duration = 1500;
+          const duration = 2000;
           let current = 0;
           counter.textContent = '0+';
-          const increment = target / (duration / 16);
+          const increment = target / (duration / 20);
 
           const updateCounter = () => {
             current += increment;
@@ -522,7 +552,7 @@ window.addEventListener('DOMContentLoaded', () => {
           observer.unobserve(counter);
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.5 });
 
     counters.forEach(counter => {
       observer.observe(counter);
@@ -530,4 +560,108 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   animatedCounter();
 
+  /* ------------------------------
+     Enhanced Scroll Animations
+  ------------------------------ */
+  function initScrollAnimations() {
+    const animateOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.animationDelay = `${index * 0.1}s`;
+            entry.target.classList.add('animate-in');
+          }, index * 100);
+        }
+    // Add staggered animations to cards
+    document.querySelectorAll('.project-card, .service-card, .skills__category').forEach(el => {
+      animateOnScroll.observe(el);
+    });
+  }
+  
+  initScrollAnimations();
+      });
+  /* ------------------------------
+     Smooth Scroll Enhancement
+  ------------------------------ */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const targetPosition = target.offsetTop - headerHeight - 20;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+    }, {
+  /* ------------------------------
+     Enhanced Mobile Menu
+  ------------------------------ */
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      const isActive = navToggle.classList.contains('active');
+      
+      navToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
+      
+      // Update ARIA attributes for accessibility
+      navToggle.setAttribute('aria-expanded', !isActive);
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+      threshold: 0.1,
+  /* ------------------------------
+     Performance Optimizations
+  ------------------------------ */
+  // Lazy load images
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+            imageObserver.unobserve(img);
+          }
+        }
+      });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  }
+      rootMargin: '0px 0px -100px 0px'
+  /* ------------------------------
+     Enhanced Theme Toggle
+  ------------------------------ */
+  const themeToggleEnhanced = document.getElementById('theme-toggle');
+  
+  if (themeToggleEnhanced) {
+    themeToggleEnhanced.addEventListener('change', () => {
+      // Add transition class to body for smooth theme switching
+      document.body.style.transition = 'all 0.3s ease';
+      
+      setTimeout(() => {
+        document.body.style.transition = '';
+      }, 300);
+    });
+  }
+    });
 });
