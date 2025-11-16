@@ -1,10 +1,7 @@
 # Dynamic Personal Portfolio
 
-## [🪪 Live](https://ujjwal-keshri.netlify.app)  
-👆 Click on the above link to visit my portfolio
-
-## 🪟 A Glimpse 
-![Glimpse Of My Portfolio](resources/portfolio.gif)
+## [🪪 LIVE](https://ujjwal-keshri.netlify.app)  
+👆 Click on the above button to visit my portfolio
 
 ---
 
