@@ -98,6 +98,11 @@ window.addEventListener('DOMContentLoaded', () => {
     applyTheme(prefersDark ? 'dark' : 'light');
   }
 
+  const currentTheme = docElement.classList.contains('dark-mode') ? 'dark' : 'light';
+  if (themeToggle) {
+    themeToggle.checked = currentTheme === 'light';
+  }
+
   themeToggle.addEventListener('change', () => {
     const isDarkMode = docElement.classList.contains('dark-mode');
     let currentTime = 0;
