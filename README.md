@@ -25,10 +25,7 @@ The **Dynamic Personal Portfolio** is a fully responsive, single-page website de
   Skills grouped by category with animated progress bars that activate on hover to display proficiency levels.  
 
 - **Filterable Project Gallery**  
-  Clean, responsive grid layout for projects with category filters (e.g., *Power Electronics*, *Control Systems*, *Embedded Systems*) to quickly locate relevant work.  
-
-- **Code Snippet Modal**  
-  “Source Code” button for each project opens a modal displaying formatted, syntax-highlighted snippets via **Prism.js**.  
+  Clean, responsive grid layout for projects with category filters (e.g., *Power Electronics*, *Control Systems*, *Embedded Systems*) to quickly locate relevant work.   
 
 - **Advanced Contact Form**  
   Includes real-time client-side validation and a dual-submission system sending form data to **Web3Forms** and **Google Apps Script** simultaneously.  
@@ -46,7 +43,6 @@ The **Dynamic Personal Portfolio** is a fully responsive, single-page website de
 | Category | Technologies |
 |----------|--------------|
 | **Frontend** | HTML5, CSS3 (Custom Properties/Variables), JavaScript (ES6+) |
-| **Libraries** | Prism.js (Syntax Highlighting) |
 | **Backend Services** | Web3Forms, Google Apps Script |
 | **Design & Layout** | Flexbox, CSS Grid, Responsive Media Queries |
 | **Fonts** | Google Fonts (Orbitron,Fira Code) |
