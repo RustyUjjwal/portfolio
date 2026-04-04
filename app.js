@@ -235,12 +235,13 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ------------------------------
-       Contact Form Validation & Dual Submission
+       Contact Form Validation & Dual Submission (Email & Sheet)
     ------------------------------ */
   const contactForm = document.getElementById('contact-form');
   const formFields = ['name', 'email', 'subject', 'message'];
 
   if (contactForm) {
+    // Basic validators
     const validators = {
       name: (value) => value.trim().length >= 2,
       email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
@@ -249,63 +250,75 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+      e.preventDefault(); // Instantly stop default browser submission
       let isValid = true;
       const submitButton = contactForm.querySelector('button[type="submit"]');
 
+      // 1. Check all fields and show inline errors
       formFields.forEach(field => {
         const input = contactForm.elements[field];
         const errorEl = document.getElementById(`${field}-error`);
         if (input && errorEl) {
-          if (!validators[field](input.value)) {
-            errorEl.textContent = `Please enter a valid ${field}.`;
+          if (!input.value.trim()) {
+            // Show custom inline error if empty
+            errorEl.textContent = `*${field.charAt(0).toUpperCase() + field.slice(1)} required`;
+            isValid = false;
+          } else if (!validators[field](input.value)) {
+            // Show custom inline error if invalid format
+            errorEl.textContent = `*Valid ${field} required`;
             isValid = false;
           } else {
+            // Clear error if perfectly valid
             errorEl.textContent = '';
           }
         }
       });
 
+      // 2. If valid, proceed with dual Google Script submission
       if (isValid) {
         submitButton.textContent = 'Sending...';
         submitButton.disabled = true;
 
         const formData = new FormData(contactForm);
-        const object = Object.fromEntries(formData.entries());
-        const json = JSON.stringify(object);
 
-        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbw5iMeqci8YZSSZwUs8GtoQpJtgoHLHfyQkEKMZjX_PyPIfvjYZHKbO3eI9ARYCCcE/exec';
-        const web3FormsURL = 'https://api.web3forms.com/submit';
+        // URL 1: Your NEW script that sends the HTML Email
+        const emailScriptURL = 'https://script.google.com/macros/s/AKfycbwHCPqe59BZiL5sKY5TU9ScDX9BuP_iG2ClpEqXNRFlfo0DO0d0zFXI_undPd9GGScSUw/exec';
 
-        const web3FormsPromise = fetch(web3FormsURL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: json
-        }).then(res => res.json());
+        // URL 2: Your ORIGINAL script that updates the Google Sheet
+        const sheetScriptURL = 'https://script.google.com/macros/s/AKfycbw5iMeqci8YZSSZwUs8GtoQpJtgoHLHfyQkEKMZjX_PyPIfvjYZHKbO3eI9ARYCCcE/exec';
 
-        const googleScriptPromise = fetch(googleScriptURL, {
+        // Create two separate fetch requests
+        const emailPromise = fetch(emailScriptURL, {
           method: 'POST',
           body: formData
-        }).then(res => res.json());
+        }).then(res => res.json()).catch(err => ({ result: "error", error: err }));
 
-        Promise.all([web3FormsPromise, googleScriptPromise])
-          .then(([web3FormsData, googleScriptData]) => {
-            if (web3FormsData.success) {
-              submitButton.textContent = 'Message Sent!';
+        const sheetPromise = fetch(sheetScriptURL, {
+          method: 'POST',
+          body: formData
+        }).then(res => res.json()).catch(err => ({ result: "error", error: err }));
+
+        // Execute both simultaneously
+        Promise.all([emailPromise, sheetPromise])
+          .then(([emailData, sheetData]) => {
+            console.log('Email Script Status:', emailData);
+            console.log('Sheet Script Status:', sheetData);
+
+            // As long as at least one succeeds, show success to the user
+            if (emailData.result === "success" || sheetData.result === "success") {
+              submitButton.textContent = 'Message Sent Successfully!';
+              contactForm.reset();
             } else {
-              console.error('Error from Web3Forms:', web3FormsData.message);
               submitButton.textContent = 'Submission Failed';
             }
-            console.log('Google Script submission status:', googleScriptData.result);
           })
           .catch((error) => {
-            console.error('Network or Fetch Error:', error);
-            submitButton.textContent = 'Error!';
-            alert('A network error occurred. Please try again.');
+            console.error('Network Error:', error);
+            submitButton.textContent = 'Error sending message';
           })
           .finally(() => {
+            // Reset the form and button after 3 seconds
             setTimeout(() => {
-              contactForm.reset();
               formFields.forEach(field => {
                 const errorEl = document.getElementById(`${field}-error`);
                 if (errorEl) errorEl.textContent = '';
@@ -434,5 +447,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
   animatedCounter();
+
 
 });

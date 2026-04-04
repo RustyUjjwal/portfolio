@@ -24,58 +24,182 @@
 }
 
 @keyframes noise-before {
-   0% { clip: rect(61px, 9999px, 52px, 0); }
-   5% { clip: rect(33px, 9999px, 144px, 0); }
-   10% { clip: rect(121px, 9999px, 115px, 0); }
-   15% { clip: rect(144px, 9999px, 162px, 0); }
-   20% { clip: rect(62px, 9999px, 180px, 0); }
-   25% { clip: rect(34px, 9999px, 42px, 0); }
-   30% { clip: rect(147px, 9999px, 179px, 0); }
-   35% { clip: rect(99px, 9999px, 63px, 0); }
-   40% { clip: rect(188px, 9999px, 122px, 0); }
-   45% { clip: rect(154px, 9999px, 14px, 0); }
-   50% { clip: rect(63px, 9999px, 37px, 0); }
-   55% { clip: rect(161px, 9999px, 147px, 0); }
-   60% { clip: rect(109px, 9999px, 175px, 0); }
-   65% { clip: rect(157px, 9999px, 88px, 0); }
-   70% { clip: rect(173px, 9999px, 131px, 0); }
-   75% { clip: rect(62px, 9999px, 70px, 0); }
-   80% { clip: rect(24px, 9999px, 153px, 0); }
-   85% { clip: rect(138px, 9999px, 40px, 0); }
-   90% { clip: rect(79px, 9999px, 136px, 0); }
-   95% { clip: rect(25px, 9999px, 34px, 0); }
-   100% { clip: rect(173px, 9999px, 166px, 0); }
+  0% {
+    clip: rect(61px, 9999px, 52px, 0);
+  }
+
+  5% {
+    clip: rect(33px, 9999px, 144px, 0);
+  }
+
+  10% {
+    clip: rect(121px, 9999px, 115px, 0);
+  }
+
+  15% {
+    clip: rect(144px, 9999px, 162px, 0);
+  }
+
+  20% {
+    clip: rect(62px, 9999px, 180px, 0);
+  }
+
+  25% {
+    clip: rect(34px, 9999px, 42px, 0);
+  }
+
+  30% {
+    clip: rect(147px, 9999px, 179px, 0);
+  }
+
+  35% {
+    clip: rect(99px, 9999px, 63px, 0);
+  }
+
+  40% {
+    clip: rect(188px, 9999px, 122px, 0);
+  }
+
+  45% {
+    clip: rect(154px, 9999px, 14px, 0);
+  }
+
+  50% {
+    clip: rect(63px, 9999px, 37px, 0);
+  }
+
+  55% {
+    clip: rect(161px, 9999px, 147px, 0);
+  }
+
+  60% {
+    clip: rect(109px, 9999px, 175px, 0);
+  }
+
+  65% {
+    clip: rect(157px, 9999px, 88px, 0);
+  }
+
+  70% {
+    clip: rect(173px, 9999px, 131px, 0);
+  }
+
+  75% {
+    clip: rect(62px, 9999px, 70px, 0);
+  }
+
+  80% {
+    clip: rect(24px, 9999px, 153px, 0);
+  }
+
+  85% {
+    clip: rect(138px, 9999px, 40px, 0);
+  }
+
+  90% {
+    clip: rect(79px, 9999px, 136px, 0);
+  }
+
+  95% {
+    clip: rect(25px, 9999px, 34px, 0);
+  }
+
+  100% {
+    clip: rect(173px, 9999px, 166px, 0);
+  }
 }
 
 @keyframes noise-after {
-   0% { clip: rect(26px, 9999px, 33px, 0); }
-   5% { clip: rect(140px, 9999px, 198px, 0); }
-   10% { clip: rect(184px, 9999px, 89px, 0); }
-   15% { clip: rect(121px, 9999px, 6px, 0); }
-   20% { clip: rect(181px, 9999px, 99px, 0); }
-   25% { clip: rect(154px, 9999px, 133px, 0); }
-   30% { clip: rect(134px, 9999px, 169px, 0); }
-   35% { clip: rect(26px, 9999px, 187px, 0); }
-   40% { clip: rect(147px, 9999px, 137px, 0); }
-   45% { clip: rect(31px, 9999px, 52px, 0); }
-   50% { clip: rect(191px, 9999px, 109px, 0); }
-   55% { clip: rect(74px, 9999px, 54px, 0); }
-   60% { clip: rect(145px, 9999px, 75px, 0); }
-   65% { clip: rect(153px, 9999px, 198px, 0); }
-   70% { clip: rect(99px, 9999px, 136px, 0); }
-   75% { clip: rect(118px, 9999px, 192px, 0); }
-   80% { clip: rect(1px, 9999px, 83px, 0); }
-   85% { clip: rect(145px, 9999px, 98px, 0); }
-   90% { clip: rect(121px, 9999px, 154px, 0); }
-   95% { clip: rect(156px, 9999px, 44px, 0); }
-   100% { clip: rect(67px, 9999px, 122px, 0); }
+  0% {
+    clip: rect(26px, 9999px, 33px, 0);
+  }
+
+  5% {
+    clip: rect(140px, 9999px, 198px, 0);
+  }
+
+  10% {
+    clip: rect(184px, 9999px, 89px, 0);
+  }
+
+  15% {
+    clip: rect(121px, 9999px, 6px, 0);
+  }
+
+  20% {
+    clip: rect(181px, 9999px, 99px, 0);
+  }
+
+  25% {
+    clip: rect(154px, 9999px, 133px, 0);
+  }
+
+  30% {
+    clip: rect(134px, 9999px, 169px, 0);
+  }
+
+  35% {
+    clip: rect(26px, 9999px, 187px, 0);
+  }
+
+  40% {
+    clip: rect(147px, 9999px, 137px, 0);
+  }
+
+  45% {
+    clip: rect(31px, 9999px, 52px, 0);
+  }
+
+  50% {
+    clip: rect(191px, 9999px, 109px, 0);
+  }
+
+  55% {
+    clip: rect(74px, 9999px, 54px, 0);
+  }
+
+  60% {
+    clip: rect(145px, 9999px, 75px, 0);
+  }
+
+  65% {
+    clip: rect(153px, 9999px, 198px, 0);
+  }
+
+  70% {
+    clip: rect(99px, 9999px, 136px, 0);
+  }
+
+  75% {
+    clip: rect(118px, 9999px, 192px, 0);
+  }
+
+  80% {
+    clip: rect(1px, 9999px, 83px, 0);
+  }
+
+  85% {
+    clip: rect(145px, 9999px, 98px, 0);
+  }
+
+  90% {
+    clip: rect(121px, 9999px, 154px, 0);
+  }
+
+  95% {
+    clip: rect(156px, 9999px, 44px, 0);
+  }
+
+  100% {
+    clip: rect(67px, 9999px, 122px, 0);
+  }
 }
 
 /* ===== Font Set ====== */
 @font-face {
   font-family: 'FKGroteskNeue';
   src: url('fonts/FKGroteskNeue.woff2') format('woff2'),
-       url('fonts/FKGroteskNeue.woff') format('woff');
+    url('fonts/FKGroteskNeue.woff') format('woff');
   font-display: swap;
 }
 
@@ -211,7 +335,7 @@ body.light-mode {
   --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
     inset 0 -1px 0 rgba(0, 0, 0, 0.03);
   --color-btn-secondary-hover-text: var(--color-black);
-  --toggle-colour:var(--color-white);
+  --toggle-colour: var(--color-white);
 }
 
 /* ===== Dark mode colors ====== */
@@ -237,7 +361,7 @@ body.dark-mode {
   --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
     inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   --color-btn-secondary-hover-text: var(--color-white);
-  --toggle-colour:var(--color-gray-400);
+  --toggle-colour: var(--color-gray-400);
 }
 
 /* ===== Base styles ====== */
@@ -403,6 +527,7 @@ a:hover {
 }
 
 /* ===== Form elements ====== */
+/* ===== Form elements ====== */
 .form-control {
   display: block;
   width: 100%;
@@ -411,9 +536,12 @@ a:hover {
   line-height: 1.5;
   color: var(--color-text);
   background-color: var(--color-surface);
+  /* Changed back to surface so it stands out against the tile */
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-base);
-  transition: border-color var(--anim-duration-fast) var(--anim-ease-standard), box-shadow var(--anim-duration-fast) var(--anim-ease-standard);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  /* Added a slight inner shadow for depth */
+  transition: all var(--anim-duration-normal) var(--anim-ease-standard);
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -421,23 +549,32 @@ a:hover {
 textarea.form-control {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
+  resize: none;
+  min-height: 100px;
+  /* Kept the message box slightly compact */
 }
 
 .form-control:focus {
   border-color: var(--color-primary);
   outline: 0;
-  box-shadow: var(--shadow-focus);
+  box-shadow: 0 0 0 4px rgba(var(--color-blue-500-rgb), 0.15), var(--shadow-sm);
+  transform: translateY(-2px);
 }
 
 .form-label {
-  display: block;
-  margin-bottom: var(--space-8);
-  font-weight: var(--font-weight-medium);
+  display: inline-block;
+  margin-bottom: var(--space-4);
+  /* Squeezed the label closer to the input box */
+  font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-sm);
+  color: var(--color-text);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .form-group {
   margin-bottom: var(--space-16);
+  /* Squeezed the gap between the different fields */
 }
 
 /* ===== Container layout ====== */
@@ -513,6 +650,7 @@ textarea.form-control {
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 1px;
 }
+
 .nav__menu {
   display: flex;
   list-style: none;
@@ -594,75 +732,79 @@ textarea.form-control {
 }
 
 .switch-wrapper input[type="checkbox"] {
-   visibility: hidden;
-   display: none;
+  visibility: hidden;
+  display: none;
 }
 
 .switch-wrapper .toggle {
-   position: relative;
-   display: block;
-   width: 42px;
-   height: 24px;
-   cursor: url('resources/default-cursor.png') 0 0, pointer;
-   -webkit-tap-highlight-color: transparent;
-   transform: translate3d(0, 0, 0);
+  position: relative;
+  display: block;
+  width: 42px;
+  height: 24px;
+  cursor: url('resources/default-cursor.png') 0 0, pointer;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
 }
 
 .switch-wrapper .toggle:before {
-   content: "";
-   position: relative;
-   top: 1px;
-   left: 1px;
-   width: 40px;
-   height: 22px;
-   display: block;
-   background: var(--color-gray-800); /* Adapted for theme */
-   border-radius: 16px;
-   transition: background 0.2s ease;
+  content: "";
+  position: relative;
+  top: 1px;
+  left: 1px;
+  width: 40px;
+  height: 22px;
+  display: block;
+  background: var(--color-gray-800);
+  /* Adapted for theme */
+  border-radius: 16px;
+  transition: background 0.2s ease;
 }
 
 .switch-wrapper .toggle span {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 24px;
-   height: 24px;
-   display: block;
-   background: var(--toggle-colour);
-   border-radius: 50%;
-   box-shadow: 0 2px 6px rgba(154,153,153,0.75);
-   transition: all 0.2s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  display: block;
+  background: var(--toggle-colour);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(154, 153, 153, 0.75);
+  transition: all 0.2s ease;
 }
 
 .switch-wrapper .toggle span svg {
-   width: 10px;
-   height: 10px;
-   margin: 7px;
-   fill: none;
+  width: 10px;
+  height: 10px;
+  margin: 7px;
+  fill: none;
 }
 
 .switch-wrapper .toggle span svg path {
-   stroke: var(--color-gray-900); /* Adapted for theme */
-   stroke-width: 2;
-   stroke-linecap: round;
-   stroke-linejoin: round;
-   stroke-dasharray: 24;
-   stroke-dashoffset: 0;
-   transition: all 0.5s linear;
+  stroke: var(--color-gray-900);
+  /* Adapted for theme */
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  stroke-dashoffset: 0;
+  transition: all 0.5s linear;
 }
 
-.switch-wrapper input[type="checkbox"]:checked + .toggle:before {
-   background: var(--color-primary); /* Adapted for theme */
+.switch-wrapper input[type="checkbox"]:checked+.toggle:before {
+  background: var(--color-primary);
+  /* Adapted for theme */
 }
 
-.switch-wrapper input[type="checkbox"]:checked + .toggle span {
-   transform: translateX(18px);
+.switch-wrapper input[type="checkbox"]:checked+.toggle span {
+  transform: translateX(18px);
 }
 
-.switch-wrapper input[type="checkbox"]:checked + .toggle span path {
-   stroke: var(--color-primary); /* Adapted for theme */
-   stroke-dasharray: 25;
-   stroke-dashoffset: 25;
+.switch-wrapper input[type="checkbox"]:checked+.toggle span path {
+  stroke: var(--color-primary);
+  /* Adapted for theme */
+  stroke-dasharray: 25;
+  stroke-dashoffset: 25;
 }
 
 /* ===== General Section Styling ====== */
@@ -1422,59 +1564,11 @@ body.light-mode .hero .photo-placeholder {
   margin-top: auto;
 }
 
-/* ===== Services Section ====== */
-.services {
-  background-color: var(--color-surface);
-}
-
-.services__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-32);
-  perspective: 1000px;
-}
-
-.service-card {
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  padding: var(--space-32);
-  border-radius: var(--radius-lg);
-  text-align: center;
-}
-
-.service-card__icon {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto var(--space-24);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-}
-
-.service-card__icon img {
-  max-width: 100%;
-  height: auto;
-}
-
-.service-card__title {
-  font-size: var(--font-size-xl);
-  margin-bottom: var(--space-16);
-  color: var(--color-text);
-}
-
-.service-card__description {
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-}
-
-.project-card:hover .project-placeholder,
-.service-card:hover .service-card__icon {
+.project-card:hover .project-placeholder {
   transform: scale(1.2);
 }
 
-.project-card,
-.service-card {
+.project-card {
   transition:
     transform 0.35s cubic-bezier(.18, .89, .32, 1.28),
     box-shadow 0.3s;
@@ -1484,9 +1578,7 @@ body.light-mode .hero .photo-placeholder {
 }
 
 .project-card:hover,
-.project-card:focus-visible,
-.service-card:hover,
-.service-card:focus-visible {
+.project-card:focus-visible {
   transform:
     perspective(700px) scale(1.06) rotateX(10deg) rotateY(-8deg);
   box-shadow:
@@ -1496,29 +1588,58 @@ body.light-mode .hero .photo-placeholder {
 }
 
 /* ===== Contact Section ====== */
+/* ===== Contact Section ====== */
+.contact {
+  background-color: var(--color-surface);
+}
+
 .contact__container {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: var(--space-32);
+  align-items: stretch;
+  /* This ensures both tiles stretch to be the exact same height */
+}
+
+/* 1. Left Tile: Contact Info */
+.contact__info {
+  background: var(--color-background);
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* This perfectly centers your details vertically inside the tile */
+}
+
+/* 2. Right Tile: The Form */
+.contact__form {
+  background: var(--color-background);
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
 }
 
 .contact__info h3 {
   font-size: var(--font-size-2xl);
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-12);
   color: var(--color-text);
 }
 
 .contact__info>p {
   font-size: var(--font-size-base);
   line-height: 1.6;
-  margin-bottom: var(--space-32);
+  margin-bottom: var(--space-24);
 }
 
 .contact__item {
   display: flex;
   align-items: center;
   gap: var(--space-16);
-  margin-bottom: var(--space-20);
+  margin-bottom: var(--space-12);
 }
 
 .contact__icon {
@@ -1554,7 +1675,7 @@ body.light-mode .hero .photo-placeholder {
 .contact__social {
   display: flex;
   gap: var(--space-16);
-  margin-top: var(--space-32);
+  margin-top: var(--space-20);
 }
 
 .contact__item:hover .contact__icon,
@@ -1598,6 +1719,20 @@ body.light-mode .hero .photo-placeholder {
   transform: scale(1.15);
 }
 
+.contact__form .btn {
+  padding: 14px 24px;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 1px;
+  margin-top: var(--space-8);
+  box-shadow: var(--shadow-md);
+}
+
+.contact__form .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
 .error-message {
   display: block;
   color: var(--color-error);
@@ -1608,7 +1743,8 @@ body.light-mode .hero .photo-placeholder {
 
 /* Footer */
 .footer {
-  background: var(--color-surface);
+  background: var(--color-background);
+  /* Changed from var(--color-surface) to continue the alternating pattern */
   border-top: 1px solid var(--color-border);
   padding: var(--space-32) 0;
 }
@@ -1619,7 +1755,6 @@ body.light-mode .hero .photo-placeholder {
   align-items: flex-start;
   margin-bottom: var(--space-32);
 }
-
 
 .footer__links {
   display: flex;
@@ -1765,9 +1900,7 @@ body.light-mode .hero .photo-placeholder {
 @media (max-width: 768px) {
 
   .project-card:hover,
-  .project-card:focus-visible,
-  .service-card:hover,
-  .service-card:focus-visible {
+  .project-card:focus-visible {
     transform: none;
     box-shadow: none;
     z-index: 1;
@@ -1846,8 +1979,7 @@ body.light-mode .hero .photo-placeholder {
   }
 
   .skills__container,
-  .projects__grid,
-  .services__grid {
+  .projects__grid {
     grid-template-columns: 1fr;
   }
 
@@ -2104,7 +2236,6 @@ textarea {
 .loader__brand .glitch {
   position: relative;
   z-index: 1;
-  /* Font styles like family, size, and weight are inherited from existing rules */
 }
 
 .loader__brand .glitch:before,
@@ -2116,7 +2247,6 @@ textarea {
   width: 100%;
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
-  /* Use CSS variables to match the site's theme */
   color: var(--color-text);
   background-color: var(--color-background);
 }
@@ -2129,4 +2259,43 @@ textarea {
 .loader__brand .glitch:after {
   left: 2px;
   animation: noise-after 2s infinite linear alternate-reverse;
+}
+
+/* ===== Ultimate Form Squeeze & Inline Errors ===== */
+
+/* 1. Make the container hold the floating error message */
+.form-group {
+  position: relative !important;
+  margin-bottom: 12px !important;
+}
+/* 2. Float the error message to the top right, exactly level with the label! */
+.error-message {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  margin: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  text-align: right;
+}
+/* 3. Keep the labels compact */
+.form-label {
+  display: inline-block;
+  margin-bottom: 4px !important;
+  font-size: 11px !important;
+}
+/* 4. Keep inputs thin and sleek */
+.form-control {
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+}
+/* 5. Keep the message box reasonably short */
+textarea.form-control {
+  min-height: 70px !important;
+}
+/* 6. Tighten the gap above the Send button */
+.contact__form .btn {
+  margin-top: 4px !important;
 }
