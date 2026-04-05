@@ -43,7 +43,7 @@ The **Dynamic Personal Portfolio** is a fully responsive, single-page website de
 | Category | Technologies |
 |----------|--------------|
 | **Frontend** | HTML5, CSS3 (Custom Properties/Variables), JavaScript (ES6+) |
-| **Backend Services** | Web3Forms, Google Apps Script |
+| **Backend Services** |Google Apps Script |
 | **Design & Layout** | Flexbox, CSS Grid, Responsive Media Queries |
 | **Fonts** | Google Fonts (Orbitron,Fira Code) |
 
