@@ -1652,6 +1652,7 @@ body.light-mode .hero .photo-placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .contact__icon img {
